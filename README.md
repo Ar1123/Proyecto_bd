@@ -5,8 +5,8 @@ ejecuta npm i cuando lo clones o dercargues
 * para añadir cambios: git add .
 * para agregar comentario: git commit -m "mesaje dentro de las comillas dobles"
 * para ver las carpetas que vas a subir con cambios:  git status
-* para subir al repositorio: git push origin master
-
+* para subir cambios al repositorio: git push origin master
+* para bajar cambios del repositorio: git pull
 
 #### Datos por defecto de angular ####
 
