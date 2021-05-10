@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+.ancho{
+    padding-left: 50px;
+    padding-right: 50px;    
+}
+.button{
+    left: 0px;
+right: 0px;
+top: 0px;
+bottom: 0px;
+border: none;
+background: #262559;
+border-radius: 2px;
+height: 26px;
+width: 160px;
+left: 1115px;
+top: 18px;
+border-radius: 0px;
+font-family: Roboto;
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 18px;
+/* identical to box height, or 150% */
+
+text-align: center;
+
+/* Colour/Secondary/White 100 (general) */
+
+color: #FFFFFF;
+
+}
