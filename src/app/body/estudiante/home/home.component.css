@@ -1,0 +1,70 @@
+img {
+    width: 700px;
+    height: 500px;
+}
+
+.col {
+    margin-top: 10%;
+}
+
+a {
+    text-decoration: none;
+    color: #343C44;
+}
+
+.list-group {
+    width: 326px;
+    margin-top: 5%;
+}
+
+.list-group-item {
+    border: 1px solid #92A1CC;
+    border-top: 0px;
+}
+
+.card-body {
+    margin-left: 110px;
+    right: 703px;
+    top: 604px;
+    bottom: 267px;
+    /* Cards 1 / dark background */
+    background: linear-gradient(90.02deg, #25335A 0.02%, #141824 113.01%);
+    border-radius: 16px;
+    height: 153px;
+    width: 500px;
+    top: 604px;
+    border-radius: 16px;
+}
+
+.card-text {
+    width: 347px;
+    height: 52px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    margin: 10px 50px;
+    line-height: 31px;
+    /* or 155% */
+    color: #FFFFFF;
+}
+
+.asignaturas {
+    margin-right: 50px;
+}
+
+.title {
+    background: #92A1CC;
+}
+
+.title a {
+    color: #FFFFFF;
+}
+
+h1 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 31px;
+    /* identical to box height, or 103% */
+    color: #262559;
+}

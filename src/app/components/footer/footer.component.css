@@ -1,0 +1,55 @@
+.footer {
+    background: #E7ECFF;
+    width: 100%;
+    margin-top: 10px;
+}
+
+li {
+    list-style: none;
+    display: inline-block;
+    margin: 10px;
+}
+
+ul {
+    display: inline-block;
+    color: #939EA4;
+}
+
+.l2 {
+    margin-left: 60%;
+}
+
+
+/*Esto es para lo del copyright*/
+
+.copy p {
+    display: inline-block;
+    margin: 20px;
+}
+
+.copy {
+    height: 24px;
+    left: 11.46%;
+    right: 79.31%;
+    margin-bottom: 50px;
+    /* Medium 14 */
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    /* identical to box height, or 171% */
+    color: #939EA4;
+}
+
+.btn {
+    bottom: 95.7%;
+    background: #262559;
+    border-radius: 2px;
+    height: 15px;
+    width: 160px;
+    margin-left: 70%;
+    top: 1650px;
+    color: #FFFFFF;
+    font-size: 14px;
+    padding-bottom: 25px;
+}

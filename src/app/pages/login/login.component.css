@@ -1,0 +1,65 @@
+.formulario {
+    margin-top: 10%;
+    margin-right: 120px;
+}
+
+img {
+    width: 688px;
+    height: 618px;
+    left: 16px;
+    top: 100px;
+}
+
+input {
+    margin: 0 0 35px 0;
+    width: 100%;
+}
+
+h1 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 29px;
+    color: #595959;
+    text-align: center;
+    left: 68.47%;
+    right: 25.62%;
+    top: 19.53%;
+    bottom: 76.95%;
+}
+
+p {
+    color: #595959;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 23px;
+}
+
+#Pass {
+    color: #92A1CC;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    margin-left: 50%;
+}
+
+.campos {
+    margin-top: 20px;
+}
+
+.btn {
+    bottom: 95.7%;
+    margin-top: 30px;
+    background: #262559;
+    border-radius: 2px;
+    height: 15px;
+    width: 260px;
+    left: 22.01%;
+    margin-left: 20%;
+    top: 1650px;
+    color: #FFFFFF;
+    font-size: 14px;
+    padding-bottom: 25px;
+}

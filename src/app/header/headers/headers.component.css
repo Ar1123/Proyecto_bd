@@ -1,0 +1,80 @@
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/*Esto estaba en los estilos globales*/
+
+.btn {
+    position: absolute;
+    bottom: 95.7%;
+    background: #262559;
+    border-radius: 2px;
+    height: 30px;
+    width: 160px;
+    left: 1115px;
+    top: 18px;
+}
+
+.nav-item .home {
+    position: absolute;
+    height: 24px;
+    left: 11.46%;
+    right: 85.9%;
+    top: 18px;
+    /* Regular 14 */
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    /* identical to box height, or 171% */
+    color: #545373;
+}
+
+.navbar {
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 94.14%;
+    height: 60px;
+    border-radius: 0px;
+}
+
+p {
+    position: absolute;
+    height: 18px;
+    left: 0px;
+    right: 0px;
+    top: calc(50% - 18px/2);
+    /* Medium 12 */
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    /* identical to box height, or 150% */
+    text-align: center;
+    /* Colour/Secondary/White 100 (general) */
+    color: #FFFFFF;
+}
+
+
+/* left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    border: none;
+    background: #262559;
+    border-radius: 2px;
+    height: 26px;
+    width: 160px;
+    left: 1115px;
+    top: 18px;
+    border-radius: 0px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    identical to box height, or 150% 
+    text-align: center;
+    /* Colour/Secondary/White 100 (general) 
+    color: #FFFFFF;*/
