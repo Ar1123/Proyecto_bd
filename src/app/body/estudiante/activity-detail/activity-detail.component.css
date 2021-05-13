@@ -24,11 +24,13 @@ h6{
 p,
 li {
   font-style: normal;
-  font-weight: normal;
-  font-size: 19px;
+  font-weight: normal;  
   line-height: 31px;
   text-align: justify;
   color: #545373;
+}
+p{
+  font-size: 19px;
 }
 ul {
   margin-left: 12px;
@@ -58,4 +60,19 @@ ul {
 img{
   width: 100px;
 
+}
+.btnfile{    
+  background-image: url('../../../../assets/images/agregar-archivo 1.png' ) ;
+  background-repeat: no-repeat;
+  height: 120px;  
+  background-position: center;
+  border: none;
+  background-color: white;
+  cursor: pointer;   
+}
+.btnfile input{  
+  width: 100px;
+  height: 120px;
+   opacity: 0;  
+   cursor: pointer;
 }

@@ -108,13 +108,29 @@
     <div class="text-center" *ngIf="!aniadirTarea">
         <button class=" mt-5 btn  btn-outline" (click)='aniadir()'>Agregar Entrega</button>
     </div>
-    <div *ngIf="aniadirTarea">
+    <div *ngIf="!aniadirTarea">
         <div class="detalle-actividad mt-5 p-4" style="height: 300px;">
             <div class="row">
+                <div class="col-4" *ngIf="archivoCargado.length>0">
+                    <ul  class="nav flex-column">
+                        <div *ngFor="let item of   archivoCargado">
+                            <li *ngIf="item.endsWith('.pdf')"><i class="fas fa-file-pdf" style="color:red"></i> {{item}}
+                            </li>
+                            <li *ngIf="item.endsWith('.docx')"><i class="fas fa-file-word"
+                                    style="color:rgb(96, 96, 192)"></i>
+                                {{item}}</li>
+                            <li *ngIf="item.endsWith('.xls')"><i class="fas fa-file-excel"
+                                    style="color: rgb(45, 204, 45);"></i>
+                                {{item}}</li>
+                        </div>
+                    </ul>
+                </div>
                 <div class="col">
                     <div class="d-flex  justify-content-center">
                         <div class="text-center mt-5">
-                            <img src="../../../../assets/images/agregar-archivo 1.png" alt="cagar archivo">
+                            <button type="button" class="btnfile">                                
+                                <input type="file" (change) ='getArchivo($event)' >
+                            </button>
                             <p>Selecciona una archivo o arrastralo aqui</p>
                         </div>
                     </div>
