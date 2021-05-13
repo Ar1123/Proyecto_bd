@@ -1,0 +1,110 @@
+<div class="caja-principal">
+    <div class="row">
+        <div class="row p-3">
+            <h4>Tecnologia e informatica</h4>
+        </div>
+        <div class="row pl-3">
+            <div class="row">
+                <p style="font-weight: bold;">Descripcion</p>
+            </div>
+            <div class="row text-justify">
+                <p class="ml-3">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, perferendis cumque. Facere
+                    recusandae fugit, iure esse aliquid aut reiciendis! Soluta a consequatur maiores beatae quibusdam
+                    recusandae fugit, iure esse aliquid aut reiciendis! Soluta a consequatur maiores beatae quibusdam
+                    vero! Alias ea quod totam.vero! Alias ea quod totam.recusandae fugit, iure esse aliquid aut
+                    reiciendis! Soluta a consequatur maiores beatae quibusdam
+                    vero! Alias ea quod totam.
+                </p>
+            </div>
+        </div>
+        <div class="row pl-3">
+            <div class="col-4">
+                <p style="font-weight: bold;">Archivos</p>
+                <ul class="nav flex-column">
+                    <li *ngIf="listaArchivos.length===0; else archivos">No hay archivos :(</li>
+                    <ng-template #archivos>
+                        <div *ngFor="let item of   listaArchivos">
+                            <li *ngIf="item.endsWith('.pdf')"><i class="fas fa-file-pdf" style="color:red"></i> {{item}}
+                            </li>
+                            <li *ngIf="item.endsWith('.docx')"><i class="fas fa-file-word"
+                                    style="color:rgb(96, 96, 192)"></i>
+                                {{item}}</li>
+                            <li *ngIf="item.endsWith('.xls')"><i class="fas fa-file-excel"
+                                    style="color: rgb(45, 204, 45);"></i>
+                                {{item}}</li>
+                        </div>
+                    </ng-template>
+                </ul>
+            </div>
+            <div class="col">
+                <p style="font-weight: bold;">Enlaces</p>
+                <ul class="nav flex-column">
+                    <li *ngIf="listaEnlaces.length===0; else enlaces">No hay enlaces :(</li>
+                    <ng-template #enlaces>
+                        <div *ngFor="let item of   listaEnlaces; let i=index">
+                            {{i+1}} . <a href="{{item}}"> {{item}}</a><br>
+                        </div>
+                    </ng-template>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="detalle-actividad mt-5 p-4">
+        <div class="row">
+            <div class="col">
+                <h6>Estado de la entrega</h6>
+            </div>
+            <div class="col">
+                <!-- Aqui va el estado de la entrega, entregada o no entregada -->
+                <p>Entregada</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h6>Estado de la calificacion</h6>
+            </div>
+            <div class="col">
+                <!-- Aqui  el estado de la  calificacion, calificada o no calificada -->
+                <p>Sin calificar</p>
+            </div>
+        </div>
+        <div class="row pt-3">
+            <div class="col">
+                <h6>Archivos enviados</h6>
+            </div>
+            <div class="col">
+                <!-- aquí van los archivos entregados -->                
+                <ul class="nav flex-column">
+                    <li *ngIf="listaArchivos.length===0; else archivos">No hay archivos :(</li>
+                    <ng-template #archivos>
+                        <div *ngFor="let item of   listaArchivos">
+                            <li *ngIf="item.endsWith('.pdf')"><i class="fas fa-file-pdf" style="color:red"></i> {{item}}
+                            </li>
+                            <li *ngIf="item.endsWith('.docx')"><i class="fas fa-file-word"
+                                    style="color:rgb(96, 96, 192)"></i>
+                                {{item}}</li>
+                            <li *ngIf="item.endsWith('.xls')"><i class="fas fa-file-excel"
+                                    style="color: rgb(45, 204, 45);"></i>
+                                {{item}}</li>
+                        </div>
+                    </ng-template>
+                </ul>
+            </div>
+        </div>
+        <div class="row pt-3">
+            <div class="col">
+                <h6>Comentarios</h6>
+            </div>
+            <div class="col">
+                <!-- aqui van los comentarios -->
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam et sapiente iste perferendis similique
+                    rem minima, ad fuga reiciendis ex aliquam incidunt magni iure molestiae dolores perspiciatis, velit,
+                    repellat suscipit?</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center"><button class=" mt-5 btn  btn-outline">Agregar Entrega</button></div>
+    
+</div>

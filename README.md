@@ -8,6 +8,8 @@ ejecuta npm i cuando lo clones o dercargues
 * para subir cambios al repositorio: git push origin master
 * para bajar cambios del repositorio: git pull
 
+# Nota 
+Hay partes que se pueden reutilizar, por ejemplo en "activity-detail" el <ul></ul> de los archivos se puede crear en un solo componente y se llene de acuerdo a lo que se requiere
 #### Datos por defecto de angular ####
 
 
