@@ -108,7 +108,7 @@
     <div class="text-center" *ngIf="!aniadirTarea">
         <button class=" mt-5 btn  btn-outline" (click)='aniadir()'>Agregar Entrega</button>
     </div>
-    <div *ngIf="!aniadirTarea">
+    <div *ngIf="aniadirTarea">
         <div class="detalle-actividad mt-5 p-4" style="height: 300px;">
             <div class="row">
                 <div class="col-4" *ngIf="archivoCargado.length>0">
