@@ -74,7 +74,7 @@
                 <h6>Archivos enviados</h6>
             </div>
             <div class="col">
-                <!-- aquí van los archivos entregados -->                
+                <!-- aquí van los archivos entregados NOTA: este componente se puede reutilizar-->
                 <ul class="nav flex-column">
                     <li *ngIf="listaArchivos.length===0; else archivos">No hay archivos :(</li>
                     <ng-template #archivos>
@@ -105,6 +105,25 @@
         </div>
     </div>
 
-    <div class="text-center"><button class=" mt-5 btn  btn-outline">Agregar Entrega</button></div>
-    
+    <div class="text-center" *ngIf="!aniadirTarea">
+        <button class=" mt-5 btn  btn-outline" (click)='aniadir()'>Agregar Entrega</button>
+    </div>
+    <div *ngIf="aniadirTarea">
+        <div class="detalle-actividad mt-5 p-4" style="height: 300px;">
+            <div class="row">
+                <div class="col">
+                    <div class="d-flex  justify-content-center">
+                        <div class="text-center mt-5">
+                            <img src="../../../../assets/images/agregar-archivo 1.png" alt="cagar archivo">
+                            <p>Selecciona una archivo o arrastralo aqui</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="float: right; margin-right: 140px;margin-top: 20px;">
+            <button class=" m-1 btn " style="width: 100px;">Subir</button>
+            <button class=" m-1 btn " style="width: 100px; background-color: red;" (click)='cancelar()'>Cancelar</button>
+        </div>
+    </div>
 </div>

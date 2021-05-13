@@ -13,7 +13,7 @@ const APP_ROUTES : Routes = [
     //Esto se va a modificar, porque el rol hay que pasarselo por parametro // Es mejor por un service, se mantiene de manera global
     {path: 'homeEstudiante' , component:HomeComponent},
     {path:'studentActivity', component: ActividadComponent},
-    {path:'activityDetail', component: DetalleActividadComponent},
+    {path:'activityDetail', component: DetalleActividadComponent},    
     {path:'**', pathMatch:'full', redirectTo:'inicio'},
     
 ]

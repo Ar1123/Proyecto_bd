@@ -20,7 +20,8 @@ import { DetalleActividadComponent } from './detalle-actividad/detalle-actividad
     InicioComponent,
     LoginComponent,
     ActividadComponent,
-    DetalleActividadComponent
+    DetalleActividadComponent,
+    
   ],
   exports:[
     InicioComponent, LoginComponent
