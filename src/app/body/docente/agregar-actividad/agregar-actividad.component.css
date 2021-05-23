@@ -1,45 +1,57 @@
-.caja-principal {
-    margin-top: 100px;
-    margin-left: 50px;
+.row1 {
+    margin-top: 10%;
 }
 
-h4 {
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 30px;
-    line-height: 31px;
-    font-weight: bold;
-    text-align: start;
+.dropdown {
+    display: inline;
+}
+
+.dropdown .btn {
+    background: white;
+    border-color: #262559;
+    color: #262559;
+    margin-top: 5px;
+}
+
+.col {
+    display: inline-block;
+}
+
+h1 {
     color: #262559;
 }
 
-h6 {
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 31px;
-    font-weight: bold;
-    text-align: start;
+.row2 {
+    margin-top: 10px;
+}
+
+.grp {
+    /*//background: #929ECC;*/
+    background: white;
     color: #262559;
+    border-color: #262559;
+    width: 37px;
+    height: 30px;
+    margin: 10px;
+    font-size: 14px;
 }
 
-p,
-li {
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 31px;
-    text-align: justify;
-    color: #545373;
+.grp:hover {
+    background: #929ECC;
+    color: white;
+    border-color: #929ECC;
 }
 
-p {
-    font-size: 19px;
+.b3 {
+    border-color: #262559;
+    color: #262559;
+    margin-top: 5px;
 }
 
-ul {
-    margin-left: 12px;
+.b3:hover {
+    color: white;
+    background: #262559;
+    border-color: #262559;
 }
 
 .detalle-actividad {
@@ -52,7 +64,7 @@ ul {
     border-radius: 16px;
 }
 
-.btn {
+.btAdd {
     margin: auto;
     background: #262559;
     border-radius: 2px;
@@ -82,4 +94,12 @@ img {
     height: 120px;
     opacity: 0;
     cursor: pointer;
+}
+
+.date {
+    margin-left: 10%;
+}
+
+.row3-1 {
+    display: block;
 }

@@ -1,0 +1,79 @@
+.row1 {
+    margin-top: 10%;
+}
+
+.dropdown {
+    display: inline;
+}
+
+.dropdown .btn {
+    background: white;
+    border-color: #262559;
+    color: #262559;
+    margin-top: 5px;
+}
+
+.col {
+    display: inline-block;
+}
+
+h1 {
+    color: #262559;
+}
+
+.row2 {
+    margin-top: 10px;
+}
+
+.grp {
+    /*//background: #929ECC;*/
+    background: white;
+    color: #262559;
+    border-color: #262559;
+    width: 37px;
+    height: 30px;
+    margin: 10px;
+    font-size: 14px;
+}
+
+.grp:hover {
+    background: #929ECC;
+    color: white;
+    border-color: #929ECC;
+}
+
+.b1 {
+    color: white;
+    background: #262559;
+    border-color: #262559;
+    margin: 5px 30px 0 30px;
+}
+
+.b1:hover {
+    color: #262559;
+    background: white;
+    margin: 5px 30px 0 30px;
+}
+
+.b2 {
+    border-color: #262559;
+    color: #262559;
+    margin-top: 5px;
+}
+
+.b2:hover {
+    color: white;
+    background: #262559;
+    border-color: #262559;
+}
+
+.b3 {
+    border-color: white;
+    color: #262559;
+    margin-top: 5px;
+}
+
+.b3:hover {
+    color: white;
+    background: #929ECC;
+}

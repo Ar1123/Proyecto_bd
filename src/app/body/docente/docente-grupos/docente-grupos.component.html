@@ -1,0 +1,59 @@
+<app-headers [items]="items"></app-headers>
+<div class="container">
+
+    <div class="row row1">
+        <div class="col-6 col-sm-3">
+            <h1>{{grupos}}</h1>
+        </div>
+        <div class="col-6 col-sm-3">
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+              Asignaturas
+            </a>
+
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" *ngFor="let item of asignaturas">
+                    <li><a class="dropdown-item">{{item }}</a></li>
+
+                </ul>
+            </div>
+        </div>
+
+        <hr style="color: #929ECC;">
+    </div>
+
+
+    <div class="row row2">
+        <div class="col">
+            <div class="d-grid gap-2 d-md-block">
+                <button class="btn btn-primary grp" type="button" (click)="grupo1()">1</button>
+                <button class="btn btn-primary grp" type="button" (click)="grupo2()">2</button>
+                <button class="btn btn-primary grp" type="button" (click)="grupo3()">3</button>
+                <button class="btn btn-primary grp" type="button" (click)="grupo4()">4</button>
+            </div>
+        </div>
+        <div class="col">
+            <!--Hay que enviar por la ruta el curso para poder registra a que curso se asigno la 
+            actividad en la base de datos-->
+            <button type="button" class="btn btn-primary b1" [routerLink]="['/agregarActividadDocente', this.grupos, this.id]" routerLinkActive="router-link-active">Asignar actividad</button>
+            <button type="button" class="btn btn-outline-primary b2" [routerLink]="['/verEntregas', this.grupos, this.id]">Ver entregas</button>
+            <button type="button" class="btn btn-outline-primary b3" routerLink="/verEntregas">Ver Actividades asignadas</button>
+
+        </div>
+
+
+    </div>
+
+    <div class="row">
+        <h4 style="color: #262559;">Listado de estudiantes</h4>
+        <!--Por el momento asi para no saturarnos-->
+
+
+        <div *ngIf="this.event1 == true  || this.event2 == true || this.event3 == true || this.event4 == true">
+
+
+            <div *ngFor="let item of ligrupo1">
+                <p>{{item}}</p>
+            </div>
+        </div>
+    </div>
+</div>

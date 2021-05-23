@@ -1,0 +1,103 @@
+<app-headers [items]="items"></app-headers>
+
+<div class="container">
+    <div class="row row1">
+        <div class="col-6 col-sm-3">
+            <h1>{{grupos}}</h1>
+        </div>
+        <div class="col-6 col-sm-3">
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+          Asignaturas
+        </a>
+
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" *ngFor="let item of asignaturas">
+                    <li><a class="dropdown-item">{{item }}</a></li>
+
+                </ul>
+            </div>
+        </div>
+        <hr style="color: #929ECC;">
+    </div>
+
+    <div class="row row2">
+        <div class="col">
+            <div class="d-grid gap-2 d-md-block">
+                <button *ngIf="this.id == '1'" class="btn btn-primary grp" type="button">1</button>
+                <button *ngIf="this.id == '2'" class="btn btn-primary grp" type="button">2</button>
+                <button *ngIf="this.id == '3'" class="btn btn-primary grp" type="button">3</button>
+                <button *ngIf="this.id == '4'" class="btn btn-primary grp" type="button">4</button>
+                <button *ngIf="this.id != '1'" class="btn btn-primary grp" type="button" disabled>1</button>
+                <button *ngIf="this.id != '2'" class="btn btn-primary grp" type="button" disabled>2</button>
+                <button *ngIf="this.id != '3'" class="btn btn-primary grp" type="button" disabled>3</button>
+                <button *ngIf="this.id != '4'" class="btn btn-primary grp" type="button" disabled>4</button>
+            </div>
+        </div>
+        <div class="col">
+            <!--Hay que enviar por la ruta el curso para poder registra a que curso se asigno la 
+            actividad en la base de datos-->
+            <button type="button" class="btn btn-outline-primary b3" routerLink="/verEntregas">Ver Actividades asignadas</button>
+        </div>
+
+
+    </div>
+
+    <div class="row row3">
+
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+
+        <div class="col">
+            <div class="row3-1">
+                <p>Fecha limite</p>
+                <mat-form-field appearance="fill" class="date">
+                    <mat-label>Choose a date</mat-label>
+                    <input matInput [matDatepicker]="picker">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <label for=""> Archivos</label>
+        <div class="text-center" *ngIf="!aniadirTarea">
+            <button class=" mt-5 btn  btn-outline btAdd" (click)='aniadir()'>Agregar Entrega</button>
+        </div>
+        <div *ngIf="aniadirTarea">
+            <div class="detalle-actividad mt-5 p-4" style="height: 300px;">
+                <div class="row">
+                    <div class="col-4" *ngIf="archivoCargado.length>0">
+                        <ul class="nav flex-column">
+                            <div *ngFor="let item of   archivoCargado">
+                                <li *ngIf="item.endsWith('.pdf')"><i class="fas fa-file-pdf" style="color:red"></i> {{item}}
+                                </li>
+                                <li *ngIf="item.endsWith('.docx')"><i class="fas fa-file-word" style="color:rgb(96, 96, 192)"></i> {{item}}
+                                </li>
+                                <li *ngIf="item.endsWith('.xls')"><i class="fas fa-file-excel" style="color: rgb(45, 204, 45);"></i> {{item}}
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <div class="d-flex  justify-content-center">
+                            <div class="text-center mt-5">
+                                <button type="button" class="btnfile">                                
+                                    <input type="file" (change) ='getArchivo($event)' >
+                                </button>
+                                <p>Selecciona una archivo o arrastralo aqui</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="float: right; margin-right: 140px;margin-top: 20px;">
+                <button class=" m-1 btn " style="width: 100px; background: #262559; color: white;">Subir</button>
+                <button class=" m-1 btn " style="width: 100px; background-color: red; color: white;" (click)='cancelar()'>Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>

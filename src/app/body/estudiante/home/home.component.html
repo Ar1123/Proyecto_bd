@@ -1,12 +1,12 @@
-<app-headers [items] = items [activado] ='true'></app-headers>
+<app-headers [items]=items [activado]='true'></app-headers>
 <div class="ancho">
     <div class="row">
         <div class="col">
             <img src="../../../../assets/images/5 SCENE.png" alt="">
 
             <div class="card-body">
-                <p class="card-text">Aqui encontraras las asignaturas que estas recibiendo y tendras acceso a las
-                    actividades</p>
+                <p class="card-text">Aqui encontraras las asignaturas que estas recibiendo y tendras acceso a las actividades
+                </p>
             </div>
         </div>
         <div class="col asignaturas">
@@ -14,7 +14,7 @@
 
             <ul class="list-group">
                 <li class="list-group-item title"><a href="">Asignaturas</a></li>
-                <li class="list-group-item" *ngFor="let item of listaAsignaturas" routerLink='/studentActivity'><a>{{item}}</a></li>                               
+                <li class="list-group-item" *ngFor="let item of listaAsignaturas" routerLink='/studentActivity'><a>{{item}}</a></li>
             </ul>
         </div>
     </div>

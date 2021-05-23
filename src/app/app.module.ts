@@ -9,6 +9,8 @@ import { PagesModule } from './pages/pages.module';
 import { APP_ROUTING } from "./app.routes";
 import { HeaderModule } from './header/header.module';
 import { FooterComponent } from './components/footer/footer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 
@@ -21,7 +23,8 @@ import { FooterComponent } from './components/footer/footer.component';
     APP_ROUTING,
     PagesModule , 
     HeaderModule ,
-    FormsModule   
+    FormsModule,
+    BrowserAnimationsModule , MatNativeDateModule  
   ],
   providers: [],
   bootstrap: [AppComponent]

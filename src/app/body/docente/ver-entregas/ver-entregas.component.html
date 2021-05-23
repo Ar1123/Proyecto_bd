@@ -1,0 +1,73 @@
+<app-headers [items]="items"></app-headers>
+
+<div class="container">
+    <div class="row row1">
+        <div class="col-6 col-sm-3">
+            <h1>{{grupos}}</h1>
+        </div>
+        <div class="col-6 col-sm-3">
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+          Asignaturas
+        </a>
+
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" *ngFor="let item of asignaturas">
+                    <li><a class="dropdown-item">{{item }}</a></li>
+
+                </ul>
+            </div>
+        </div>
+        <hr style="color: #929ECC;">
+    </div>
+
+    <div class="row row2">
+        <div class="col">
+            <div class="d-grid gap-2 d-md-block">
+                <button *ngIf="this.id == '1'" class="btn btn-primary grp" type="button">1</button>
+                <button *ngIf="this.id == '2'" class="btn btn-primary grp" type="button">2</button>
+                <button *ngIf="this.id == '3'" class="btn btn-primary grp" type="button">3</button>
+                <button *ngIf="this.id == '4'" class="btn btn-primary grp" type="button">4</button>
+                <button *ngIf="this.id != '1'" class="btn btn-primary grp" type="button" disabled>1</button>
+                <button *ngIf="this.id != '2'" class="btn btn-primary grp" type="button" disabled>2</button>
+                <button *ngIf="this.id != '3'" class="btn btn-primary grp" type="button" disabled>3</button>
+                <button *ngIf="this.id != '4'" class="btn btn-primary grp" type="button" disabled>4</button>
+            </div>
+        </div>
+        <div class="col">
+            <!--Hay que enviar por la ruta el curso para poder registra a que curso se asigno la 
+            actividad en la base de datos-->
+            <button type="button" class="btn btn-outline-primary b3" routerLink="/verEntregas">Ver Actividades asignadas</button>
+        </div>
+
+
+    </div>
+
+    <div class="row row3">
+        <h4>Listado de estudiantes</h4>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col"> No</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Archivo</th>
+                    <th scope="col"></th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of ligrupo1;let i = index  ">
+                    <th scope="row">{{i +1}}</th>
+                    <td>{{item}}</td>
+                    <td>30/05/2021</td>
+                    <td>Entregado-SC</td>
+                    <td><button type="button" class="btn btn-primary btn-sm b1">Primary</button> <button type="button" class="btn btn-outline-primary btn-sm b2">Primary</button></td>
+                </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
