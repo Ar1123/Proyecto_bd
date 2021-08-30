@@ -7,7 +7,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { HeaderModule } from '../header/header.module';
 import { BodyModule } from '../body/body.module';
 import { FooterComponent } from '../components/footer/footer.component';
-import { APP_ROUTING } from '../app.routes';
+import { AppRoutingModule } from '../app.routes';
 import { ActividadComponent } from './actividad/actividad.component';
 import { DetalleActividadComponent } from './detalle-actividad/detalle-actividad.component';
 
@@ -27,7 +27,10 @@ import { DetalleActividadComponent } from './detalle-actividad/detalle-actividad
     InicioComponent, LoginComponent
   ],
   imports: [
-    CommonModule,HeaderModule,BodyModule, APP_ROUTING
+    CommonModule,
+    HeaderModule,
+    BodyModule, 
+    AppRoutingModule,
     
   ]
 })

@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeadersComponent } from './headers/headers.component';
-import { APP_ROUTING } from '../app.routes';
+import { AuthRoutingModule } from '../auth/auth-routing.module';
+// import {  AppRoutingModule } from '../app.routes';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { APP_ROUTING } from '../app.routes';
     HeadersComponent
   ],
   imports: [
-    CommonModule, APP_ROUTING
+    CommonModule, 
+    AuthRoutingModule
   ]
 })
 export class HeaderModule { }

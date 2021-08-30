@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 
 //Creados por nostros
 import { BodyInicioComponent } from './body-inicio/body-inicio.component';
-import { APP_ROUTING } from '../app.routes';
+import {  AppRoutingModule } from '../app.routes';
 import { HomeComponent } from './estudiante/home/home.component';
 import { HeaderModule } from '../header/header.module';
 import { ActivityComponent } from './estudiante/activity/activity.component';
@@ -33,8 +33,8 @@ import { MatInputModule  } from "@angular/material/input";
   ],
   imports: [
     CommonModule,
-     APP_ROUTING,
-     HeaderModule  , RouterModule, HeaderModule, MatDatepickerModule,MatInputModule
+     AppRoutingModule,
+     HeaderModule  , RouterModule, MatDatepickerModule,MatInputModule
   ]
 })
 export class BodyModule { }

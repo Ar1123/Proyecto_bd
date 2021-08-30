@@ -1,0 +1,82 @@
+.contenedor {
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+.caja-1,
+.caja-2,
+.caja-3 {
+    width: 100%;
+     
+}
+
+.caja-1{
+    margin-top: 10%;
+}
+img{
+    width: 600px;
+}
+
+.btn {
+    position: absolute;
+    bottom: 95.7%;
+    background: #262559;
+    border-radius: 2px;
+    height: 15px;
+    width: 160px;
+    left: 22.01%;
+    top: 1650px;
+    color: #FFFFFF;
+font-size: 14px;
+padding-bottom: 25px;
+}
+
+
+
+
+
+
+
+h4 {
+    margin: auto;
+    margin-top: 80px;
+    height: 18px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 50px;
+    line-height: 18px;
+    text-align: center;
+    color: #262559;
+    font-family: 'Roboto', sans-serif;
+}
+
+h3 {
+    margin: auto;
+    margin-top: 80px;
+    height: 18px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 18px;
+    text-align: center;
+    color: #262559;
+    font-family: 'Roboto', sans-serif;
+}
+
+p {
+    margin-top: 40px;
+    height: 231px;
+    top: 219px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 19px;
+    line-height: 31px;
+    text-align: justify;
+    color: #545373;
+}
+
+.caja-1 ,#title1{
+top: 20px;
+}

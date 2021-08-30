@@ -1,0 +1,79 @@
+<app-headers [items]="items"></app-headers>
+<div class="row row1">
+    <div class="col left">
+        <img src="../../../../assets/images/7 SCENE 1.1.png" alt=""></div>
+    <div class="col right">
+        <h1>Bienvenido Docente</h1>
+
+        <h3>{{get().nombres}}  {{get().apellidos}}</h3>
+
+
+        <div class="card-body">
+            <p class="card-text">Aqui encontraras las asignaturas que impartes, los grados en que das clases y demás
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="row row2">
+
+
+
+
+
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <br>
+        <h1>Asignaturas</h1>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="card-body target" *ngFor="let item of asignaturas">
+                    <div class="text"><a routerLink="/cursosDocente" class="asig"> {{item}}</a></div>
+
+                </div>
+
+            </div>
+            <div class="carousel-item">
+                <div class="card-body target" *ngFor="let item of asignaturas">
+                    <div class="text"><a routerLink="/cursosDocente" class="asig"> {{item}}</a></div>
+
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="card-body target" *ngFor="let item of asignaturas">
+                    <div class="text"><a routerLink="/cursosDocente" class="asig"> {{item}}</a></div>
+
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+    </div>
+</div>
+
+<div class="row row3">
+
+    <h1>Grados</h1>
+    <div class="card-body cursos target" *ngFor="let item of grados">
+        <!--Lo hice para poder centrar las anclas-->
+        <div class="text"><a [routerLink]="['/cursosDocente', item]" class="cursos"> {{item.grado}}</a></div>
+
+    </div>
+
+</div>
+
+<!--<div class="row row2">
+    <h1>Asignaturas</h1>
+    <div class="card-body" *ngFor="let item of asignaturas">
+        <div class="text"><a href="" class="asig"> {{item}}</a></div>
+
+    </div>
+
+
+</div>-->

@@ -1,0 +1,41 @@
+<app-headers [items] = 'items' [activado] = 'true'></app-headers>
+<div class="ancho">
+    <div class="row">
+        <div class="col"><img src="../../../assets/images/logo_transparent 1.png" alt=""></div>
+        <div class="col formulario">
+            <h1>Login</h1>
+            <form  [formGroup]='formulario'
+                (ngSubmit)='login()'
+            >
+            <div class="row campos">
+                <p>Usuario</p>
+                <input 
+                
+                class="form-control i1" 
+                type="text" placeholder="Usuario" 
+                aria-label="default input example"
+                formControlName='usuario'
+                
+                >
+                <p>Contraseña</p>
+                <input 
+                class="form-control i2" 
+                type="password" placeholder="******" 
+                aria-label="default input example"
+                formControlName='contrasenia'
+                >
+                <p id="Pass">¿Olvidaste tu contraseña?</p>
+                <button 
+                class="btn btn-outline" 
+                type="submit"
+                [disabled]="formulario.invalid"
+                >  Ingresar</button>
+            </div>
+              </form>
+
+
+
+        </div>
+    </div>
+
+</div>
