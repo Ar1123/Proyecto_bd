@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 
 //Creados por nostros
 import { BodyInicioComponent } from './body-inicio/body-inicio.component';
-import {  AppRoutingModule } from '../app.routes';
+import { AppRoutingModule } from '../app.routes';
 import { HomeComponent } from './estudiante/home/home.component';
 import { HeaderModule } from '../header/header.module';
 import { ActivityComponent } from './estudiante/activity/activity.component';
@@ -16,25 +16,29 @@ import { AgregarActividadComponent } from './docente/agregar-actividad/agregar-a
 import { VerEntregasComponent } from './docente/ver-entregas/ver-entregas.component';
 //ANGULAR MATERIAL
 
-import {MatDatepickerModule} from '@angular/material/datepicker'; 
-import { MatInputModule  } from "@angular/material/input";
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from "@angular/material/input";
 
 @NgModule({
   declarations: [
     BodyInicioComponent,
     HomeComponent,
     ActivityComponent,
-    ActivityDetailComponent,HomeDocenteComponent, DocenteGruposComponent, AgregarActividadComponent, VerEntregasComponent
+    ActivityDetailComponent,
+    HomeDocenteComponent,
+    DocenteGruposComponent,
+    AgregarActividadComponent,
+    VerEntregasComponent
   ],
-  exports:[
+  exports: [
     BodyInicioComponent,
     ActivityComponent,
-    ActivityDetailComponent, 
+    ActivityDetailComponent,
   ],
   imports: [
     CommonModule,
-     AppRoutingModule,
-     HeaderModule  , RouterModule, MatDatepickerModule,MatInputModule
+    AppRoutingModule,
+    HeaderModule, RouterModule, MatDatepickerModule, MatInputModule
   ]
 })
 export class BodyModule { }

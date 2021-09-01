@@ -1,0 +1,38 @@
+.caja-principal {
+    margin-top: 100px;
+    margin-left: 50px;
+}
+
+h3 {
+    width: 226px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 31px;
+    text-align: start;
+    /* identical to box height, or 155% */
+    color: #262559;
+}
+
+.caja-asig {
+    padding: 20px;
+    text-align: start;
+}
+
+.btn {
+    bottom: 95.7%;
+    background: #92A1CC;
+    border-radius: 2px;
+    height: 15px;
+    width: 160px;
+    left: 22.01%;
+    top: 1650px;
+    color: #FFFFFF;
+    font-size: 14px;
+    padding-bottom: 25px;
+}
+
+img {
+    width: 600px;
+}

@@ -1,0 +1,22 @@
+<app-headers [items]=items [activado]='true'></app-headers>
+<div class="ancho">
+    <div class="row">
+        <div class="col">
+            <img src="../../../../assets/images/5 SCENE.png" alt="">
+
+            <div class="card-body">
+                <p class="card-text">Aqui encontraras las asignaturas que estas recibiendo y tendras acceso a las actividades
+                </p>
+            </div>
+
+        </div>
+        <div class="col asignaturas">
+            <h1>Asignaturas</h1>
+            <button (click)="VerActividades()"> Ver Actividades</button>
+            <ul class="list-group">
+                <li class="list-group-item title"><a href="">Asignaturas</a></li>
+                <li class="list-group-item" *ngFor="let item of Asignaturas"><a>{{item.nombre}}</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

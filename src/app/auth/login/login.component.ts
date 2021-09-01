@@ -32,8 +32,14 @@ export class LoginComponent implements OnInit {
                       .subscribe(response=>{
                         if(response==true){
                           console.log(localStorage.getItem('rol'));
+                          console.log(localStorage.getItem('userId'));
                            
+                          const id = localStorage.getItem('userId');
+
                           const rol = localStorage.getItem('rol');
+
+                          this.router.navigate(['school/inicioEstudiante',id]);
+                          console.log(`school/inicioEstudiante/${id}`);
                           if(rol=='Docente'){
 
                             this.router.navigateByUrl('school/home');

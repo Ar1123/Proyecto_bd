@@ -1,0 +1,85 @@
+.caja-principal {
+    margin-top: 100px;
+    margin-left: 50px;
+}
+
+h4 {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 31px;
+    font-weight: bold;
+    text-align: start;
+    color: #262559;
+}
+
+h6 {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 31px;
+    font-weight: bold;
+    text-align: start;
+    color: #262559;
+}
+
+p,
+li {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 31px;
+    text-align: justify;
+    color: #545373;
+}
+
+p {
+    font-size: 19px;
+}
+
+ul {
+    margin-left: 12px;
+}
+
+.detalle-actividad {
+    width: 90%;
+    border-radius: 16px;
+    background: #fbfbfb;
+    border: 1px solid #e5e5e5;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 4px rgba(117, 131, 142, 0.04), 0px 8px 16px rgba(52, 60, 68, 0.1);
+    border-radius: 16px;
+}
+
+.btn {
+    margin: auto;
+    background: #262559;
+    border-radius: 2px;
+    height: 15px;
+    width: 260px;
+    color: #FFFFFF;
+    font-size: 14px;
+    padding-bottom: 25px;
+}
+
+img {
+    width: 100px;
+}
+
+.btnfile {
+    background-image: url('../../../../assets/images/agregar-archivo 1.png');
+    background-repeat: no-repeat;
+    height: 120px;
+    background-position: center;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+.btnfile input {
+    width: 100px;
+    height: 120px;
+    opacity: 0;
+    cursor: pointer;
+}

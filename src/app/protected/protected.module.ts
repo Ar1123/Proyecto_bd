@@ -6,6 +6,9 @@ import { ActividadComponent } from './teacher/actividad/actividad.component';
 import { ProtectedRoutingModule } from './protected-routing.module';
 import { HomeDocenteComponent } from './teacher/home-docente/home-docente.component';
 import { HeaderModule } from '../header/header.module';
+import { InicioComponent } from './student/inicio/inicio.component';
+import { ActivityComponent } from './student/activity/activity.component';
+import { ActivityDetailComponent } from './student/activity-detail/activity-detail.component';
 
 
 
@@ -14,7 +17,10 @@ import { HeaderModule } from '../header/header.module';
     MainComponent,
     GrupoComponent,
     ActividadComponent,
-    HomeDocenteComponent
+    HomeDocenteComponent,
+    InicioComponent,
+    ActivityComponent,
+    ActivityDetailComponent
   ],
   imports: [
     CommonModule,
