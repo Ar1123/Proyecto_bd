@@ -34,3 +34,40 @@
   |     \  ___ ___
 
 ````
+
+# Se implemento la vista de los grupos por grados 
+
+en el service se implementaron tres metodos uno para obtener los grupos de acuerdo al grado en que el docente imparte clases 
+
+
+```js
+Metodo para obtener los grupos de acuerdo al grado
+getGrupos(){
+    
+    const URL = `${this.baseUrl}/grupos/${this.idUser}/${this.grado}`;
+
+    return this.http.get<ResponseInterface>(URL)
+                    .pipe(
+                      map(res=>{
+                        return res.body;
+                      }),
+                      catchError(e=>of(e))
+                    )
+  }
+  ```
+```js
+Metodo para obtener la lista de estudiantes de acuerdo al grado
+  getEstdiantes(grado:string) {
+  const URL = `${this.baseUrl}/lista/${grado}`;
+    return this.http.get<ResponseInterface>(URL)
+              .pipe(
+                map(res=>{
+                  return  res.body;
+                 }),
+                 catchError(e=>of(e))
+              );
+  }
+  ```
+ se modifico el archivo `interface` del docente, dejando todo en un solo archivo `teacher interface` dejando como respuesta principal al `interfaceResponse` interface quecontiene el status de la peticion y a su vez, las disntinas interfaces segun sea el caso.
+
+ por facilidad y rapidez, se pasa el id por la ruta del navegador 

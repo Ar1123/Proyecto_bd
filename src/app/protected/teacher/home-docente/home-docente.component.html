@@ -35,13 +35,13 @@
             </div>
             <div class="carousel-item">
                 <div class="card-body target" *ngFor="let item of asignaturas">
-                    <div class="text"><a routerLink="/cursosDocente" class="asig"> {{item}}</a></div>
+                    <div class="text" > {{item}}</div>
 
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="card-body target" *ngFor="let item of asignaturas">
-                    <div class="text"><a routerLink="/cursosDocente" class="asig"> {{item}}</a></div>
+                    <div class="text"> {{item}}</div>
 
                 </div>
             </div>
@@ -60,9 +60,9 @@
 <div class="row row3">
 
     <h1>Grados</h1>
-    <div class="card-body cursos target" *ngFor="let item of grados">
+    <div class="card-body cursos target" *ngFor="let item of grados" (click)="verGrupo($event)" value="{{item.id_grado}}" [grupo]='item.id_grado'> 
         <!--Lo hice para poder centrar las anclas-->
-        <div class="text"><a [routerLink]="['/cursosDocente', item]" class="cursos"> {{item.grado}}</a></div>
+        <div class="text" >{{item.grado}}</div>
 
     </div>
 

@@ -9,27 +9,13 @@ import { GrupoComponent } from './teacher/grupo/grupo.component';
 import { HomeDocenteComponent } from './teacher/home-docente/home-docente.component';
 
 const routes: Routes =[
-{
-    path:'',component:MainComponent,
-},
-{
-    path:'home',component:HomeDocenteComponent,
-},
-{
-    path:'actividad',component:ActividadComponent,
-},
-{
-    path:'grupo',component:GrupoComponent,
-},
-{
-    path:'inicioEstudiante/:id',component: InicioComponent,
-},
-{
-    path:'actividades/:id_grupo',component: ActivityComponent,
-},
-{
-    path:'detalleActividad/:id_actividad/:nombre', component: ActivityDetailComponent
-}
+{ path:'',component:MainComponent,},
+{ path:'home',component:HomeDocenteComponent,},
+{ path:'actividad',component:ActividadComponent,},
+{ path:'grupo',component:GrupoComponent,},
+{ path:'inicioEstudiante/:id',component: InicioComponent, },
+{ path:'actividades/:id_grupo',component: ActivityComponent,},
+{ path:'detalleActividad/:id_actividad/:nombre', component: ActivityDetailComponent}
 ];
 
 @NgModule({

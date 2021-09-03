@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { catchError, map, tap } from 'rxjs/operators';
 import { of, Observable } from 'rxjs';
-import { ResponseInterface, Body } from '../../interface/auth_interface';
+import { ResponseInterface } from 'src/app/interface/inteface_tracher';
+
 
 @Injectable({
   providedIn: 'root'

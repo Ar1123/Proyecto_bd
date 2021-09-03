@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceDocenteService } from '../../../services/service-docente.service';
-import {BodyUsuario } from '../../../interface/user_interface';
-import { GradosInterface } from '../../../interface/grados_interface';
+
+import { Router } from '@angular/router';
+import { BodyGrado, BodyUsuario } from 'src/app/interface/inteface_tracher';
 @Component({
   selector: 'app-home-docente',
   templateUrl: './home-docente.component.html',
@@ -15,13 +16,18 @@ export class HomeDocenteComponent implements OnInit {
   asignaturas=['Matematicas', 'Ciencias Naturales', 'Quimica','Sociales'];
   cursos = ['Sexto', 'Septimo', 'Octavo', 'Noveno', 'Decimo', 'Once'];
 
-  grados: GradosInterface[] =[];
+  grados: BodyGrado[] =[];
+   grado:string = 'aaa';
+
 
     user:BodyUsuario
     get(){
       return {...this.user}
     }
-  constructor( private docenteService: ServiceDocenteService) { 
+  constructor( 
+    private docenteService: ServiceDocenteService,
+    private router: Router
+    ) { 
     
   }
   
@@ -46,6 +52,18 @@ export class HomeDocenteComponent implements OnInit {
     );
   
   }
+
+  verGrupo(event){
+    console.log(event.target.value, '022222222');
+      if(event.target.value){
+      this.docenteService.idGrado = event.target.value;
+      this.router.navigateByUrl('school/grupo');
+
+      }
+  }
+
+
+
 
 
   
