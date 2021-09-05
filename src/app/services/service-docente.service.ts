@@ -15,7 +15,7 @@ export class ServiceDocenteService {
 
   private baseUrl:String  = environment.baseURL;
   private idUser:String = localStorage.getItem('userId');
-  private grado:string;
+
   constructor(private http: HttpClient) { }
 
   getDatosUsuario(){
@@ -43,9 +43,9 @@ export class ServiceDocenteService {
       catchError(e=>of(e))
     )
   }
-  getGrupos(){
+  getGrupos(grado:String){
     
-    const URL = `${this.baseUrl}/grupos/${this.idUser}/${this.grado}`;
+    const URL = `${this.baseUrl}/grupos/${this.idUser}/${grado}`;
 
     return this.http.get<ResponseInterface>(URL)
                     .pipe(
@@ -58,10 +58,7 @@ export class ServiceDocenteService {
 
   }
 
-  set idGrado( id:string){
-      this.grado = id;
-    
-  }
+
 
   getEstdiantes(grado:string) {
   const URL = `${this.baseUrl}/lista/${grado}`;

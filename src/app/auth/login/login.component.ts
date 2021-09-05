@@ -45,7 +45,6 @@ export class LoginComponent implements OnInit {
                             this.router.navigateByUrl('school/home');
                           }
 
-                          // 114420560
                         }else{
                           Swal.fire('Error', response, 'error');
                         }

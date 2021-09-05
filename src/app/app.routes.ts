@@ -37,7 +37,7 @@ const routes : Routes = [
     // {path:'studentActivity', component: ActividadComponent},
     // {path:'activityDetail', component: DetalleActividadComponent},
     // {path: 'homeDocente', component: HomeDocenteComponent}, 
-    {path: 'cursosDocente/:curso', component: DocenteGruposComponent}, 
+    // {path: 'cursosDocente/:curso', component: DocenteGruposComponent}, 
     // {path: 'agregarActividadDocente/:curso/:id', component: AgregarActividadComponent},  
     // {path: 'verEntregas/:curso/:id', component: VerEntregasComponent},
     // {path:'**', pathMatch:'full', redirectTo:'inicio'},

@@ -17,6 +17,7 @@ export class LoginService {
   constructor(private http: HttpClient) { }
   
   login(usuario: String, contrasenia: String) {
+    
     const URL = `${this.baserUrl}/sigin`;
     const body = { usuario, contrasenia }
     return this.http.post<ResponseInterface>(URL, body)

@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./agregar-actividad.component.css']
 })
 export class AgregarActividadComponent implements OnInit {
+
   items=['Home', 'Actividades', 'Cursos'];
   asignaturas = ['Matematicas', 'Estadistica', 'Gemoetria'];
   grupos: string;
@@ -14,22 +15,15 @@ export class AgregarActividadComponent implements OnInit {
   aniadirTarea:boolean = false;
   archivoCargado:string[] = [];
 
-
-  constructor(private router: ActivatedRoute) { 
-    this.grupos = this.router.snapshot.paramMap.get('curso');
-    this.id = this.router.snapshot.paramMap.get('id_grupo');
-    console.log(this.id);
-    console.log('222222222222222');
-    
-    
-  }
+  constructor(private router: ActivatedRoute) { }
 
   ngOnInit(): void {
-
-
+    this.grupos = this.router.snapshot.paramMap.get('id_grado');
+    this.id = this.router.snapshot.paramMap.get('id_grupo');
+    console.log(this.router.snapshot.params);
+    
   }
 
-  
   aniadir():void{
     this.aniadirTarea = true;    
     }

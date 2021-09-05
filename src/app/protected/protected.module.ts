@@ -9,9 +9,11 @@ import { HeaderModule } from '../header/header.module';
 import { InicioComponent } from './student/inicio/inicio.component';
 import { ActivityComponent } from './student/activity/activity.component';
 import { ActivityDetailComponent } from './student/activity-detail/activity-detail.component';
+import { AgregarActividadComponent } from './teacher/agregar-actividad/agregar-actividad.component';
 
 
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from "@angular/material/input";
 @NgModule({
   declarations: [
     MainComponent,
@@ -20,12 +22,13 @@ import { ActivityDetailComponent } from './student/activity-detail/activity-deta
     HomeDocenteComponent,
     InicioComponent,
     ActivityComponent,
-    ActivityDetailComponent
+    ActivityDetailComponent,
+    AgregarActividadComponent
   ],
   imports: [
     CommonModule,
     ProtectedRoutingModule,
-    HeaderModule
+    HeaderModule,MatDatepickerModule, MatInputModule,
   ]
 })
 export class ProtectedModule { }

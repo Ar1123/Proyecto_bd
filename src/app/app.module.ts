@@ -13,8 +13,8 @@ import { HeaderModule } from './header/header.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatNativeDateModule } from '@angular/material/core';
-
-
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire/';
 
 @NgModule({
   declarations: [
@@ -29,6 +29,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     BrowserAnimationsModule , 
     MatNativeDateModule,
     HttpClientModule,
+    
+
 
   ],
   providers: [],

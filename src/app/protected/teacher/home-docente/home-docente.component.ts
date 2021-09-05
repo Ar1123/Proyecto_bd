@@ -43,7 +43,6 @@ export class HomeDocenteComponent implements OnInit {
     );
     this.docenteService.getGrados().subscribe(
       response =>{
-        // this.grados.push(response);
         response.forEach(element => {
           this.grados.push(element);
           
@@ -54,10 +53,10 @@ export class HomeDocenteComponent implements OnInit {
   }
 
   verGrupo(event){
-    console.log(event.target.value, '022222222');
+    
       if(event.target.value){
-      this.docenteService.idGrado = event.target.value;
-      this.router.navigateByUrl('school/grupo');
+       
+      this.router.navigate(['school/grupo', event.target.value]);
 
       }
   }
