@@ -13,8 +13,9 @@ import { HeaderModule } from './header/header.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatNativeDateModule } from '@angular/material/core';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { AngularFireModule } from '@angular/fire/';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,8 @@ import { AngularFireModule } from '@angular/fire/';
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig,'proyecto_base_de_datos_2'),
+    AngularFireStorageModule,
     AppRoutingModule,
     PagesModule , 
     HeaderModule ,
@@ -33,7 +36,7 @@ import { AngularFireModule } from '@angular/fire/';
 
 
   ],
-  providers: [],
+  providers: [AngularFireStorageModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

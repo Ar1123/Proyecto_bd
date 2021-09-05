@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   baseURL: 'http://localhost:3000/school/',
-   firebaseConfig : {
+  firebaseConfig : {
     apiKey: "AIzaSyAiZxnE9X-OsHzbz0sEAhIh5zmjmRNsjgg",
     authDomain: "proyecto-final-base-de-d-961ff.firebaseapp.com",
     projectId: "proyecto-final-base-de-d-961ff",
