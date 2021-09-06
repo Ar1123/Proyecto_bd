@@ -1,0 +1,16 @@
+<div class="row caja-principal">
+    <div class="col">
+        <div class="row" *ngFor="let item of Actividades">
+            <div class="col-6 caja-asig">
+                <h3>{{item.id}}</h3>
+            </div>
+
+            <div class="col-3 caja-asig">
+                <button class="btn btn-outline" [routerLink]="['/school/detalleActividad', item.id_actividad, item.nombre]" routerLinkActive="router-link-active"> Ir a la actividad </button>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <img src="../../../../assets/images/6 SCENE 1.png" alt="imagen de actividad">
+    </div>
+</div>
