@@ -24,7 +24,7 @@ const routes: Routes =[
 { path:'home',component:HomeDocenteComponent,},
 { path:'actividad',component:ActividadComponent,},
 { path:'grupo/:id',component:GrupoComponent,},
-{ path:'asignarActividad/:idGrado/:id_grupo', component:AgregarActividadComponent},
+{ path:'asignarActividad/:id_grado/:id_grupo', component:AgregarActividadComponent},
 
 
 /*

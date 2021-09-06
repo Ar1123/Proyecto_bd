@@ -103,3 +103,30 @@ img {
 .row3-1 {
     display: block;
 }
+
+
+
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  
+}
+  
+    .download {
+      background: #1081ff;
+      color: #FFFFFF;
+      padding: 10px 20px;
+      margin-bottom: 20px;
+     
+  }
+  .contenedor-formulario {
+    width: 400px;
+  }
+  a {
+    text-decoration: underline;
+    color: #FFFFFF;
+  }

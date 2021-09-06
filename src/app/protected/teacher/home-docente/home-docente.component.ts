@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceDocenteService } from '../../../services/service-docente.service';
 
 import { Router } from '@angular/router';
-import { BodyGrado, BodyUsuario } from 'src/app/interface/inteface_tracher';
+import { BodyGrado, BodyGrados, BodyUsuario } from 'src/app/interface/inteface_tracher';
 @Component({
   selector: 'app-home-docente',
   templateUrl: './home-docente.component.html',
@@ -16,7 +16,7 @@ export class HomeDocenteComponent implements OnInit {
   asignaturas=['Matematicas', 'Ciencias Naturales', 'Quimica','Sociales'];
   cursos = ['Sexto', 'Septimo', 'Octavo', 'Noveno', 'Decimo', 'Once'];
 
-  grados: BodyGrado[] =[];
+  grados: BodyGrados[] =[];
    grado:string = 'aaa';
 
 

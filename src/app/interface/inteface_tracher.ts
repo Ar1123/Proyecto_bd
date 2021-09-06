@@ -18,7 +18,7 @@ export interface BodyGrupos {
 }
 
 
-export interface BodyGrado {
+export interface BodyGrados {
     grado: string;
     id_grado:string
 }
@@ -32,4 +32,14 @@ export interface BodyUsuario {
 export interface BodyAuth {
     id_usuario: string;
     rol:        string;
+}
+export interface BodyGrado {
+    grado:        string;
+}
+export interface BodyGrupo {
+    grado:        string;
+    posicion:        string;
+}
+export interface BodyAsignatura {
+    nombre:        string;
 }

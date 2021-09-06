@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 
 
@@ -13,7 +13,7 @@ import { HeaderModule } from './header/header.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatNativeDateModule } from '@angular/material/core';
-import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireStorageModule, BUCKET } from '@angular/fire/storage';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 
@@ -32,11 +32,11 @@ import { environment } from 'src/environments/environment';
     BrowserAnimationsModule , 
     MatNativeDateModule,
     HttpClientModule,
-    
+    ReactiveFormsModule,
 
 
   ],
-  providers: [AngularFireStorageModule],
+  providers: [{provide:BUCKET, useValue:'gs://proyecto-final-base-de-d-961ff.appspot.com/'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

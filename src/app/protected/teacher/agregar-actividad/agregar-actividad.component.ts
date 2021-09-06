@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UploadServiceService } from 'src/app/services/upload-service.service';
+import { ServiceDocenteService } from '../../../services/service-docente.service';
+import { BodyGrupo, BodyAsignatura } from '../../../interface/inteface_tracher';
 
 @Component({
   selector: 'app-agregar-actividad',
@@ -9,18 +13,47 @@ import { ActivatedRoute } from '@angular/router';
 export class AgregarActividadComponent implements OnInit {
 
   items=['Home', 'Actividades', 'Cursos'];
-  asignaturas = ['Matematicas', 'Estadistica', 'Gemoetria'];
-  grupos: string;
-  id:string;
+  private id_grado: string;
+  private id_grupo:string;
+  
   aniadirTarea:boolean = false;
   archivoCargado:string[] = [];
 
-  constructor(private router: ActivatedRoute) { }
+  grado: string;
+  posicion:string;
+  asiganatura:string;
+
+
+
+  constructor(
+    private router: ActivatedRoute, 
+    private serviceup: UploadServiceService,
+    private serviceDicente:ServiceDocenteService 
+    ) { }
 
   ngOnInit(): void {
-    this.grupos = this.router.snapshot.paramMap.get('id_grado');
-    this.id = this.router.snapshot.paramMap.get('id_grupo');
-    console.log(this.router.snapshot.params);
+    this.id_grado = this.router.snapshot.paramMap.get('id_grado');
+    this.id_grupo = this.router.snapshot.paramMap.get('id_grupo');
+    
+    this.serviceDicente.getGrupo(this.id_grado, this.id_grupo).
+                    subscribe(
+                          (response:BodyGrupo) =>{
+                                console.log(response);
+                                
+                            this.grado = response[0].grado;
+                            this.posicion = response[0].posicion;
+                          }
+    );
+
+    this.serviceDicente.getAsignatura(this.id_grupo)
+                        .subscribe((response:BodyAsignatura)=>{
+                          console.log(response);
+                          
+                          this.asiganatura = response[0].nombre
+                        })      
+
+
+
     
   }
 
@@ -39,4 +72,9 @@ export class AgregarActividadComponent implements OnInit {
       }
     }
 
+
+
+    //Evento que se gatilla cuando el input de tipo archivo cambia
+
+    
 }

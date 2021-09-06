@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ServiceDocenteService } from '../../../services/service-docente.service';
 import { BodyGrupos, BodyStudent } from '../../../interface/inteface_tracher';
 import Swal from 'sweetalert2';
+import { BodyGrado } from 'src/app/interface/inteface_tracher';
 
 @Component({
   selector: 'app-grupo',
@@ -18,6 +19,7 @@ export class GrupoComponent implements OnInit {
   grupos: string;
   id_grado:string;
   id_grupo:string;
+  grado:String;
   ligrupo1 = [];
   
   
@@ -35,6 +37,15 @@ export class GrupoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //obteniendo el grado
+    this.doceteService.getGrado(this.id_grado)
+                      .subscribe((response:BodyGrado)=>{
+                        console.log(response);
+                        
+                            this.grado = response[0].grado;
+                      });
+
+    //Obteniendo los grupos                  
     this.doceteService.getGrupos(this.id_grado)
                       .subscribe(response=>{
                         response.forEach((element:BodyGrupos) => {
@@ -64,6 +75,8 @@ export class GrupoComponent implements OnInit {
     if(this.id_grupo){
       // /school/asignarActividad
         // this.routes.navigate(['school/asignarActividad']);
+        console.log('ww', this.grado);
+        
         this.routes.navigateByUrl(`school/asignarActividad/${this.id_grado}/${this.id_grupo}`);
         
 

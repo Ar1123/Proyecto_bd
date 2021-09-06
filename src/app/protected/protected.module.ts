@@ -10,6 +10,7 @@ import { InicioComponent } from './student/inicio/inicio.component';
 import { ActivityComponent } from './student/activity/activity.component';
 import { ActivityDetailComponent } from './student/activity-detail/activity-detail.component';
 import { AgregarActividadComponent } from './teacher/agregar-actividad/agregar-actividad.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -23,12 +24,19 @@ import { MatInputModule } from "@angular/material/input";
     InicioComponent,
     ActivityComponent,
     ActivityDetailComponent,
-    AgregarActividadComponent
+    AgregarActividadComponent,
+
+    
+  ],
+  exports:[
+    
   ],
   imports: [
     CommonModule,
     ProtectedRoutingModule,
     HeaderModule,MatDatepickerModule, MatInputModule,
+    ReactiveFormsModule,
+
   ]
 })
 export class ProtectedModule { }

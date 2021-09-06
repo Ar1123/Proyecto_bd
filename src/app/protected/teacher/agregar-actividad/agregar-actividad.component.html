@@ -3,15 +3,15 @@
 <div class="container">
     <div class="row row1">
         <div class="col-6 col-sm-3">
-            <h1>{{grupos}}</h1>
+            <!-- <h1>{{grupos}}</h1> -->
         </div>
         <div class="col-6 col-sm-3">
             <div class="dropdown">
           
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" *ngFor="let item of asignaturas">
+                <!-- <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" *ngFor="let item of asignaturas">
                     <li><a class="dropdown-item">{{item }}</a></li>
 
-                </ul>
+                </ul> -->
             </div>
         </div>
         <hr style="color: #929ECC;">
@@ -20,10 +20,10 @@
     <div class="row justify-content-between">
         <div class="col-4">
             Grado
-            9 - A
+            {{grado}} - {{posicion}}
         </div>
         <div class="col-4">
-        Ciencias Naturales
+       {{asiganatura}}
         </div>
       
         <div class="col-4">
