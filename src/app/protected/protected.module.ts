@@ -35,7 +35,7 @@ import { MatInputModule } from "@angular/material/input";
     CommonModule,
     ProtectedRoutingModule,
     HeaderModule,MatDatepickerModule, MatInputModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
 
   ]
 })

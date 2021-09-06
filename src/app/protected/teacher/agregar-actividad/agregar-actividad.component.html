@@ -35,25 +35,32 @@
 
     </div>
 
-    <div class="row row3">
+        <form  [formGroup]=formulario (ngSubmit)=crearActividad()>
+            <div class="row row3">
 
-        <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
-
-        <div class="col">
-            <div class="row3-1">
-                <p>Fecha limite</p>
-                <mat-form-field appearance="fill" class="date">
-                    <mat-label>Choose a date</mat-label>
-                    <input matInput [matDatepicker]="picker">
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
-                </mat-form-field>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName=descripcion> </textarea>
+                </div>
+        
+                <div class="row3-1">
+                <div class="col">
+                        <p>Fecha limite</p>
+                    </div>
+                     <div class="col">
+                        <mat-form-field appearance="fill" class="date">
+                            <mat-label>Elige una fecha</mat-label>
+                            <input matInput [matDatepicker]="picker" formControlName=fechaLimite>
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                     </div>   
+                </div>
             </div>
-        </div>
-    </div>
+            <div style=" margin-top: 30px; text-align: center;">
+                <button type="submit" [disabled]="formulario.invalid" class=" m-1 btn " style="width: 150px; background: #262559; color: white;">Crear Actividad</button>
+            </div>
+        </form>
 
     <div class="row">
         <label for=""> Archivos</label>
@@ -86,9 +93,7 @@
                     </div>
                 </div>
             </div>
-            <div style=" margin-top: 30px; text-align: center;">
-                <button class=" m-1 btn " style="width: 100px; background: #262559; color: white;">Subir</button>
-            </div>
+            
         </div>
     </div>
 </div>

@@ -15,9 +15,20 @@ export class ServiceDocenteService {
 
   private baseUrl:String  = environment.baseURL;
   private idUser:String = localStorage.getItem('userId');
+  private fecha_inicial:string ='';
 
   constructor(private http: HttpClient) { }
 
+
+/*
+.............##.......##.....######...########.########
+............##.......##.....##....##..##..........##...
+...........##.......##......##........##..........##...
+..........##.......##.......##...####.######......##...
+.........##.......##........##....##..##..........##...
+........##.......##.........##....##..##..........##...
+.......##.......##...........######...########....##...
+*/
   //Obtiene el nombre y apellido del docente
   getDatosUsuario(){
     
@@ -107,6 +118,59 @@ export class ServiceDocenteService {
                     );
 
   }
+
+ /*
+ ..........##.......##.########...#######...######..########
+ .........##.......##..##.....##.##.....##.##....##....##...
+ ........##.......##...##.....##.##.....##.##..........##...
+ .......##.......##....########..##.....##..######.....##...
+ ......##.......##.....##........##.....##.......##....##...
+ .....##.......##......##........##.....##.##....##....##...
+ ....##.......##.......##.........#######...######.....##...
+ */
+
+    CrearActvidad(fecha_limite:string, descripcion:string, id_grupo:string){
+     const url = `${this.baseUrl}/crearActividad`;
+    const  id_periodo = '001P';
+    let fecha = new Date();
+    let dia:string;
+    let mes:string;
+    if(fecha.getDate()<10){
+      dia = `0${fecha.getDate()}`;
+    } else{
+      dia = `${fecha.getDate()}`;
+      
+    } 
+    if((fecha.getMonth()+1)<10){
+      mes = `0${fecha.getMonth()+1}`;
+    } else{
+      mes = `${fecha.getMonth()+1}`; 
+      } 
+      
+      
+      this.fecha_inicial = `${fecha.getFullYear()}-${mes}-${dia}`;
+      
+      const body ={
+        id_periodo, 
+        descripcion, 
+        id_grupo, 
+        id_docente:this.idUser, 
+        fecha_inicial:this.fecha_inicial,
+        fecha_limite,
+       }
+     return   this.http.post<ResponseInterface>(url, body)
+                .pipe(
+                  map(res => {
+                    return res.ok}),// si el status es exitoso, se envia un booleano true
+                  catchError(e => of(e.error))  
+                ) ; 
+     
+     
+    }
+
+
+  
+
 
 }
 
