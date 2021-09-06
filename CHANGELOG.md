@@ -71,3 +71,50 @@ Metodo para obtener la lista de estudiantes de acuerdo al grado
  se modifico el archivo `interface` del docente, dejando todo en un solo archivo `teacher interface` dejando como respuesta principal al `interfaceResponse` interface quecontiene el status de la peticion y a su vez, las disntinas interfaces segun sea el caso.
 
  por facilidad y rapidez, se pasa el id por la ruta del navegador 
+
+
+ ````js
+    /////////
+   /   * *   \ 
+  /    {}     \ _____
+  |             _____
+  |  \  \      YO PUSE MI CODIGO AQUí XD
+  |   \   \___ ___
+  |     \  ___ ___
+
+````
+
+# Cargue  de actividad firebase André (03-09-2021)
+
+ - se implento la recuerpacion  en el service docente,  del grado (`getGrado(id_grado:string)`),   la posicion  `(getGrupo( id_grado:string, id_grupo:string))` y la asignatura `( getAsignatura(grupo:string))` de acuerdo el docente, para asi cuando el user ingrese a la pestaña de crear activad, tenga los datos necesario
+
+ - para cargar un archivo se instalo firebae `npm install firebase @angular/fire --save` configuraciones relacionadas a firebase en app.moduele.ts  `src\app\app.module.ts`
+    - para cargar la imagen al server, se tiene el siguiente metodo
+
+     ```ts
+              updloadFile(event,id_grado:string, id_grupo:string, id_asignatura:string ){
+            
+              const file = event.target.files[0];
+              this.fileName = file.name;
+              this.filePath =`${this.id_docente}/${id_grado}/${id_grupo}/${id_asignatura}/${this.fileName}`;
+              const fileRef = this.storage.ref(this.filePath);
+              const upload = this.storage.upload(this.filePath, file);
+              upload.snapshotChanges()
+                    .pipe( 
+                      finalize(()=>{
+                          fileRef.getDownloadURL()
+                                .subscribe(url=>{
+                                  console.log(url);
+                                })                  
+                      })
+                    ).subscribe(
+                      response =>{
+                        console.log(response, 'response');  
+                      }
+                    );
+                }
+
+      ```
+
+      # Nota
+        - hay que crear un indicador de carga cuando el archivo se este enviando al servidor

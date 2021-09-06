@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, FormGroupName, Validators } from '@angular/forms';
 import { UploadServiceService } from 'src/app/services/upload-service.service';
 import { ServiceDocenteService } from '../../../services/service-docente.service';
-import { BodyGrupo, BodyAsignatura } from '../../../interface/inteface_tracher';
+import { BodyGrupo, BodyAsignatura, BodyActividadRespons3 } from '../../../interface/inteface_tracher';
 
 import * as _moment from 'moment';
 const moment = _moment; 
@@ -17,8 +17,9 @@ export class AgregarActividadComponent implements OnInit {
   items=['Home', 'Actividades', 'Cursos'];
   private id_grado: string;
   private id_grupo:string;
-  
+  private id_actividad:number;
   aniadirTarea:boolean = false;
+  private id_asignatura:string;
   archivoCargado:string[] = [];
 
   grado: string;
@@ -56,8 +57,10 @@ export class AgregarActividadComponent implements OnInit {
     this.serviceDicente.getAsignatura(this.id_grupo)
                         .subscribe((response:BodyAsignatura)=>{
                           console.log(response);
+                          console.log(response, '2222222222222');
                           
-                          this.asiganatura = response[0].nombre
+                          this.id_asignatura = response[0].id_asignaturas;
+                          this.asiganatura = response[0].nombre;
                         });     
   }
 
@@ -69,13 +72,12 @@ export class AgregarActividadComponent implements OnInit {
   crearActividad(){
     const {descripcion, fechaLimite} = this.formulario.value;
 
-    console.log(descripcion, fechaLimite);
     const formatoActual = new Date(fechaLimite);
     const fecha_limite = moment(formatoActual).format('YYYY-MM-DD');
       
       this.serviceDicente.CrearActvidad(fecha_limite, descripcion, this.id_grupo)
-                          .subscribe(res=>{
-                            console.log(res);
+                          .subscribe((res:BodyActividadRespons3)=>{
+                             this.id_actividad = res[0].id_actividad 
                             
                           });
                          
@@ -95,8 +97,9 @@ export class AgregarActividadComponent implements OnInit {
   
     getArchivo(e){
       const d = e.target.files[0].name;    
-      console.log(d);    
       if(d!=''){
+        this.serviceup.updloadFile(e, this.id_grado, this.id_grupo, this.id_asignatura);
+        
         this.archivoCargado.push(d);        
       }
     }

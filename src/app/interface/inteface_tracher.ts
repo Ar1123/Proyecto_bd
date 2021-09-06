@@ -42,4 +42,11 @@ export interface BodyGrupo {
 }
 export interface BodyAsignatura {
     nombre:        string;
+    id_asignaturas:        string;
+}
+export interface BodyActividadRespons3 {
+    id_actividad: number, 
+    descripcion:  string, 
+    fecha_inicial:Date, 
+    fecha_limite: Date
 }

@@ -161,7 +161,7 @@ export class ServiceDocenteService {
      return   this.http.post<ResponseInterface>(url, body)
                 .pipe(
                   map(res => {
-                    return res.ok}),// si el status es exitoso, se envia un booleano true
+                    return res.body}),
                   catchError(e => of(e.error))  
                 ) ; 
      
