@@ -91,7 +91,7 @@ export class GrupoComponent implements OnInit {
         // this.routes.navigate(['school/asignarActividad']);
         console.log('ww', this.grado);
         
-    this.routes.navigateByUrl(`school/listActividades/${this.id_grupo}`);
+    this.routes.navigateByUrl(`school/listActividades/${this.id_grado}/${this.id_grupo}`);
         
 
     }else{

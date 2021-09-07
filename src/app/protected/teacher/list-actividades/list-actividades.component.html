@@ -1,8 +1,23 @@
 <app-headers [items]="items"></app-headers>
-<div class="container">
-    
 
+
+
+  <div class="container">
     <div class="row row1">
+        <div class="container">
+            <div class="col-4">
+                <div class="dropdown">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                  Periodos
+                </a>
+        
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" >
+                        <li ><a class="dropdown-item" *ngFor="let item of periodo; let i=index" (click)="periodos(item)">{{item.anio }} -{{i+1}}</a></li>
+        
+                    </ul>
+                </div>
+                Periodo: {{ id_periodo }}
+            </div>
         <table class="table">
             <thead>
                 <tr>
@@ -31,3 +46,4 @@
 
 
 </div>
+  </div>

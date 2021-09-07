@@ -68,3 +68,12 @@ export interface BodyPeriodo {
     fecha_inicio: Date;
     fecha_fin: Date;
 }
+export interface BodyActividadPeriodo {
+    id_actividad: string,
+    id_grupo: string,
+    id_docente: string,
+    fecha_inicial:Date,
+    fecha_limite: Date,
+    id_periodo: string;
+    descripcion:  string;
+}

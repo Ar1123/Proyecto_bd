@@ -26,7 +26,8 @@ const routes: Routes =[
 { path:'actividad',component:ActividadComponent,},
 { path:'grupo/:id',component:GrupoComponent,},
 { path:'asignarActividad/:id_grado/:id_grupo', component:AgregarActividadComponent},
-{ path:'listActividades/:id_grupo', component:ListActividadesComponent},
+{ path:'editarActividad/:id_grado/:id_grupo/:id_actividad', component:AgregarActividadComponent},
+{ path:'listActividades/:id_grado/:id_grupo', component:ListActividadesComponent},
 
 
 /*

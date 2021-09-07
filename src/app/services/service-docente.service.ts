@@ -106,7 +106,7 @@ export class ServiceDocenteService {
                );
   }
 
-  getGrupo( id_grado:string, id_grupo:string){
+  getGrupo( id_grupo:string, id_grado:string){
     const url = `${this.baseUrl}/grupo/${id_grupo}/${id_grado}`;
     console.log(url);
     
@@ -131,9 +131,9 @@ export class ServiceDocenteService {
 
   }
 
-  listActividades(id_grupo:string){
+  listActividades(id_periodo:string, id_grupo:string){
 
-    const url  = `${this.baseUrl}/listActividades/${this.idUser}/${id_grupo}`;
+    const url  = `${this.baseUrl}/actividadesPeridos/${id_periodo}/${id_grupo}`;
     return this.http.get<ResponseInterface>(url)
                 .pipe(
                   map(res=>{
@@ -154,7 +154,9 @@ export class ServiceDocenteService {
                  ),
                  catchError(e=>of(e))
                )  
-  }              
+  }    
+  
+  getA
 
  /*
  ..........##.......##.########...#######...######..########
@@ -205,6 +207,20 @@ export class ServiceDocenteService {
      
     }
 
+  getActividadById(id_actividad:string){
+
+
+    const url = `${this.baseUrl}/actividad/${id_actividad}`;
+
+    return this.http.get<ResponseInterface>(url)
+                     .pipe(
+                       map(res=>{
+                         return res.body;
+                       }),
+                       catchError(e=>of(e))
+                     );
+  }  
+
 
   /*
   .......##.......##.########..##.....##.########
@@ -231,6 +247,23 @@ export class ServiceDocenteService {
                       }),
                       catchError(e=>of(e))
                     )
+    
+  }
+  editActivityAsignada(id_actividad:string, fecha_limite:string){
+
+    const url = `${this.baseUrl}/editarfechalimite/${id_actividad}`;
+    const body = {
+        fecha_limite
+    };
+
+    return this.http.put<ResponseInterface>(url, body)
+                    .pipe(
+                      map(res=>{
+                        return res.ok;
+                      }),
+                      catchError(e=>of(e))
+                    )
+
     
   }
 

@@ -27,11 +27,8 @@ export class ActivityComponent implements OnInit {
 this.id_grupo = this.route.snapshot.params.id_grupo;
 this.id_asignatura = this.route.snapshot.params.id_asignatura;
 console.log(this.id_asignatura);
-
 this.CargarAsignaturas(this.id_grupo);
-
-
-  }
+}
 
 
   CargarAsignaturas(id:string){

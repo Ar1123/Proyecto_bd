@@ -16,9 +16,10 @@ const moment = _moment;
 export class AgregarActividadComponent implements OnInit {
 
   items=['Home', 'Actividades', 'Cursos'];
+  
   private id_grado: string;
   private id_grupo:string;
-   id_actividad:string;
+  id_actividad:string;
   aniadirTarea:boolean = false;
   private id_asignatura:string;
   archivoCargado:string[] = [];
@@ -31,7 +32,7 @@ export class AgregarActividadComponent implements OnInit {
   grado: string;
   posicion:string;
   asiganatura:string;
-
+  id_actividadEdit:string;
 
   constructor(
     private router: ActivatedRoute,
@@ -46,6 +47,21 @@ export class AgregarActividadComponent implements OnInit {
     //Obteniendo id
     this.id_grado = this.router.snapshot.paramMap.get('id_grado');
     this.id_grupo = this.router.snapshot.paramMap.get('id_grupo');
+    this.id_actividadEdit =  this.router.snapshot.paramMap.get('id_actividad');
+
+
+    if(this.id_actividadEdit){
+      this.id_actividad = this.id_actividadEdit;
+      this.visible = true;
+      this.serviceDicente.getActividadById(this.id_actividadEdit)
+                   .subscribe(
+                     res=>{
+                       console.log(res);
+                       this.formulario.controls['descripcion'].setValue(res[0].descripcion); 
+                       this.formulario.controls['fechaLimite'].setValue(res[0].fecha_limite); 
+                     }
+                   )   
+    }
 
 
     this.serviceDicente.periodos()
@@ -56,21 +72,31 @@ export class AgregarActividadComponent implements OnInit {
                            });
                          }
                        )
+                       console.log(this.id_grado, '2222222222' , this.id_grupo);
+                       
     //obteniendo grupo
-    this.serviceDicente.getGrupo(this.id_grado, this.id_grupo).
-                    subscribe(
-                          (response:BodyGrupo) =>{
-                            this.grado = response[0].grado;
-                            this.posicion = response[0].posicion;
-                          }
-    );
+  if(this.id_grado){
+
+      this.serviceDicente.getGrupo(this.id_grupo, this.id_grado).
+      subscribe(
+        (response:BodyGrupo) =>{
+          this.grado = response[0].grado;
+          this.posicion = response[0].posicion;
+        }
+        );
+      }
     //obteniendo asignatura
-    this.serviceDicente.getAsignatura(this.id_grupo)
-                        .subscribe((response:BodyAsignatura)=>{
-                         this.id_asignatura = response[0].id_asignaturas;
-                         this.asiganatura = response[0].nombre;
-                        });
-  }
+ if(this.id_asignatura){
+  this.serviceDicente.getAsignatura(this.id_grupo)
+  .subscribe((response:BodyAsignatura)=>{
+   this.id_asignatura = response[0].id_asignaturas;
+   this.asiganatura = response[0].nombre;
+  });
+}
+
+
+
+ }
 
   formulario:FormGroup = this.fb.group({
     descripcion: ['',[Validators.required]],
@@ -98,24 +124,34 @@ export class AgregarActividadComponent implements OnInit {
   }
 
 
+
+  
+
   editarActividad(){
     console.log('Editando...');
-    const {descripcion} = this.formulario.value;
+    const {descripcion, fechaLimite} = this.formulario.value;
 
     this.serviceDicente.editActivity(this.id_actividad, descripcion)
                         .subscribe(e=>{
                           console.log(e);
                           
                         })
-    
-  }
 
-    
+    this.serviceDicente.editActivityAsignada(this.id_actividad, fechaLimite)
+                        .subscribe(e=>{
+                          console.log(e);
+                          
+                        })
+  }
 
     getArchivo(e){
       const d = e.target.files[0].name;
       if(d!=''){
-        const s =this.serviceup.updloadFile(e, this.id_grado, this.id_grupo, this.id_asignatura, this.id_actividad);
+      this.serviceup.updloadFile(e, this.id_grado, this.id_grupo, this.id_asignatura, this.id_actividad);
+      
+      
+      
+      
       if(this.serviceup.satus()){
         this.archivoCargado.push(d);
       }
