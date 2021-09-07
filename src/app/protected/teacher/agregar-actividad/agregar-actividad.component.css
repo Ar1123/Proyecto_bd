@@ -131,3 +131,31 @@ img {
     color: #262559;
     text-decoration: none;
   }
+
+
+
+  .contenedor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  
+   
+  
+  
+    
+  }
+  .download {
+    background: #1081ff;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+  }
+    a {
+      text-decoration: underline;
+      color: #FFFFFF;
+    }
+  .contenedor-formulario {
+    width: 400px;
+  }

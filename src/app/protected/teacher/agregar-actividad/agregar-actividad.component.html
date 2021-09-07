@@ -75,6 +75,7 @@
       
         
 
+ <form  [formGroup]="archivoForm" (ngSubmit)="subirArchivo()"  >
     <div class="row">
         <label for=""> Archivos</label>
         <div>
@@ -98,7 +99,7 @@
                         <div class="d-flex  justify-content-center">
                             <div class="text-center mt-5">
                                 <button type="button" class="btnfile">                                
-                                    <input type="file" (change) ='getArchivo($event)' >
+                                    <input type="file" (change) ='cambioArchivo($event)' formControlName='archivo' >
                                 </button>
                                 <p>Haz clic y carga un archivo</p>
                             </div>
@@ -106,7 +107,11 @@
                     </div>
                 </div>
             </div>
+            <button type="submit"  class=" m-1 btn " style="width: 150px; background: #262559; color: white;" [ngClass]="{'button': true, 'is-success': true, 'is-large': true, 'is-loading': porcentaje > 0 && porcentaje < 100}" [disabled]="!archivoForm.valid && (porcentaje > 0 && porcentaje < 100)" >Cargar Archivo</button>
+            <progress *ngIf="porcentaje > 0 && porcentaje < 100" class="progress is-large is-success" value="{{porcentaje}}" max="100">{{porcentaje}}%</progress>
+
             
         </div>
     </div>
+ </form>
 </div>

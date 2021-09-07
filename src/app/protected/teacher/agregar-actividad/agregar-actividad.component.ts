@@ -7,6 +7,7 @@ import { BodyGrupo, BodyAsignatura, BodyActividadRespons3, BodyPeriodo } from '.
 
 import * as _moment from 'moment';
 import Swal from 'sweetalert2';
+import { finalize } from 'rxjs/operators';
 const moment = _moment;
 @Component({
   selector: 'app-agregar-actividad',
@@ -16,19 +17,34 @@ const moment = _moment;
 export class AgregarActividadComponent implements OnInit {
 
   items=['Home', 'Actividades', 'Cursos'];
+
+  // ____________________
+  public datosFormulario = new FormData();
+  public nombreArchivo = '';
+  public URLPublica = '';
+  public peso = '';
+  public formato ='';
+  public porcentaje = 0;
+  public finalizado = false;
+  public path = '';
+
+  // ____________________
   
+  id_user: string = localStorage.getItem('userId');
+
   private id_grado: string;
   private id_grupo:string;
   id_actividad:string;
   aniadirTarea:boolean = false;
   private id_asignatura:string;
+  file;
   archivoCargado:string[] = [];
   visible:boolean = false;
   periodo: BodyPeriodo[] =[];
+  
 
   id_periodo:string;
   periodoSelect:string;
-
   grado: string;
   posicion:string;
   asiganatura:string;
@@ -38,6 +54,7 @@ export class AgregarActividadComponent implements OnInit {
     private router: ActivatedRoute,
     private serviceup: UploadServiceService,
     private serviceDicente:ServiceDocenteService,
+    
     private fb: FormBuilder,
     ) { }
 
@@ -86,13 +103,13 @@ export class AgregarActividadComponent implements OnInit {
         );
       }
     //obteniendo asignatura
- if(this.id_asignatura){
+
   this.serviceDicente.getAsignatura(this.id_grupo)
   .subscribe((response:BodyAsignatura)=>{
    this.id_asignatura = response[0].id_asignaturas;
    this.asiganatura = response[0].nombre;
   });
-}
+
 
 
 
@@ -145,26 +162,78 @@ export class AgregarActividadComponent implements OnInit {
   }
 
     getArchivo(e){
-      const d = e.target.files[0].name;
-      if(d!=''){
-      this.serviceup.updloadFile(e, this.id_grado, this.id_grupo, this.id_asignatura, this.id_actividad);
-      
-      
-      
-      
-      if(this.serviceup.satus()){
-        this.archivoCargado.push(d);
-      }
+       this.file = e;
+      if(this.file.target.files[0].name!=''){
+
+         this.archivoCargado.push(this.file.target.files[0].name); 
+         
+        }
+      } 
+      cargar(){
+        console.log(this.file);
         
-      
-      }
-    } 
+        
+          // console.log(this.serviceup.upd, );
+          
+    }
 
     periodos(item, event){
   
       this.id_periodo = item.id_periodo;        
     }
 
+    public archivoForm = new FormGroup({
+      archivo: new FormControl(null, Validators.required),
+    });
+  
+    
+    public cambioArchivo(event) {
+      const file =  event.target.files[0];
+      this.archivoCargado.push(file.name) ;
+      this.nombreArchivo =file.name;
+      this.peso =    `${file.size/1000}`;
+      this.formato = file.name.split(".");
+      this.datosFormulario.delete('archivo');
+      this.datosFormulario.append('archivo', event.target.files[0], event.target.files[0].name)
+      this.path =`Docente/${this.id_user}/${this.id_grado}/${this.id_grupo}/${this.id_asignatura}/${this.nombreArchivo}`;  
+    }
+  
+    //Sube el archivo a Cloud Storage
+    public subirArchivo() {
+      let archivo = this.datosFormulario.get('archivo');
+      let referencia = this.serviceup.referenciaCloudStorage(this.path);
+      let tarea = this.serviceup.tareaCloudStorage(this.path, archivo);
+  
+      //Cambia el porcentaje
+      tarea.percentageChanges().subscribe((porcentaje) => {
+        this.porcentaje = Math.round(porcentaje);
+        if (this.porcentaje == 100) {
+          this.finalizado = true;
+        }
+      });
+  
+      tarea.snapshotChanges()   
+                  .pipe(
+                    finalize(()=>{
+                        referencia.getDownloadURL()
+                        .subscribe(url=>{
+                          console.log(url);
+        this.serviceup.updloadFile(
+          url, 
+          this.nombreArchivo,
+          this.formato[1],
+          this.peso,
+         this.id_actividad).subscribe(res=>{
+        console.log(res);
+        
+      });
+
+                          
+                        })
+                    })
+                  ).subscribe(url=>{})
+    }
+  
 
 
     //Evento que se gatilla cuando el input de tipo archivo cambia

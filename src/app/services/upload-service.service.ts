@@ -22,6 +22,11 @@ export class UploadServiceService {
   private fileType:string;
 
   public up: boolean = false;
+  public  fl:number;
+get upd(){
+  return this.fl;
+
+}
 
 
   constructor( 
@@ -30,76 +35,47 @@ export class UploadServiceService {
     ) { }
 
 
-  updloadFile(event,id_grado:string, id_grupo:string, id_asignatura:string, id_actividad:string ){
-   
-
- 
-    const file = event.target.files[0];
-    this.fileName = file.name;
-    this.size = `${file.size/1000}`;
-    this.format = file.name.split(".");
-
-    
-
-    this.filePath =`${this.id_docente}/${id_grado}/${id_grupo}/${id_asignatura}/${this.fileName}`;
-    const fileRef = this.storage.ref(this.filePath);
-    const upload = this.storage.upload(this.filePath, file);
-
-    
-    return upload.snapshotChanges()
-          .pipe( 
-            finalize(()=>{
-                fileRef.getDownloadURL()
-                       .subscribe((url)=>{
-                         this.url = url;
-                         const urls = `${this.baseUrl}/aniadirArchivo`;  
-      
-                         const body = {
-                         
-                           id_actividad,
-                           peso: this.size,
-                           formato:this.format[1],
-                           nombre:this.format[0],
-                           ruta:this.url,
-                           tipo_archivo:'guia'
+  updloadFile(
+    url:string, 
+    name:string,
+    formato:string, 
+    peso:string, 
+    id_actividad:string ){
+   const urls = `${this.baseUrl}/aniadirArchivo`;   
+  
+   const body = {                        
+                    id_actividad,
+                    peso: peso,
+                    formato:formato,
+                    nombre:name,
+                    ruta:url,
+                    tipo_archivo:'guia'
                         
-                       };
-                       this.up = true;
+                };
+
                    
-                       return  this.http.post<ResponseInterface>(urls,body)
-                                         .pipe(
-                                           map(res=>{
-                                            this.up = true;
-                                             return res.body;
-                                           }),
-                                           catchError(e=>of(e))
-                                         ).subscribe(e=>{
-                                          this.up = true;
-                                           console.log(e);
-                                           
-                                         });
-                                         
-                                         
-                                        })
-                                      })
-                                      ).subscribe(
-                                        
-                                        
-                                        res=>{
-     
-                
-              }
-         
-          );
-      
-              
-
-  }
+            return  this.http.post<ResponseInterface>(urls,body)
+                       .pipe(
+                         map(res=>{
+                          this.up = true;
+                           return res.body;
+                         }),
+                         catchError(e=>of(e))
+                       );
+                      }
 
 
-  satus(){
-    return this.up;
-  }
 
 
+
+  //______________________________-
+    //Tarea para subir archivo
+    public tareaCloudStorage(nombreArchivo: string, datos: any) {
+      return this.storage.upload(nombreArchivo, datos);
+    }
+  
+    //Referencia del archivo
+    public referenciaCloudStorage(nombreArchivo: string) {
+      return this.storage.ref(nombreArchivo);
+    }
 }
