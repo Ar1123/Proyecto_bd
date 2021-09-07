@@ -122,8 +122,7 @@
             <a style="width: 100%; display: block;" [href]="downloadURL | async">{{ downloadURL | async }}</a>
             <p>Cargar Archivo</p>
             <div class="progress">
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" [aria-valuenow]="(this.service.upload.percentageChanges() | async)" [style.width]="(this.service.upload.percentageChanges() | async)"> </div>
-                <div>{{this.service.upload.percentageChanges() | async}}</div>
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" [aria-valuenow]="(uploadPercent | async)" [style.width]="(uploadPercent | async)"> {{ uploadPercent | async }}</div>
             </div>
             <!--
             <button class=" m-1 btn " style="width: 100px; background-color: red;" (click)='cancelar()'>Cancelar</button>-->
