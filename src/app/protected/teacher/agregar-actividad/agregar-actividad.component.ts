@@ -21,6 +21,7 @@ export class AgregarActividadComponent implements OnInit {
   aniadirTarea:boolean = false;
   private id_asignatura:string;
   archivoCargado:string[] = [];
+  visible:boolean = false;
 
   grado: string;
   posicion:string;
@@ -47,8 +48,6 @@ export class AgregarActividadComponent implements OnInit {
     this.serviceDicente.getGrupo(this.id_grado, this.id_grupo).
                     subscribe(
                           (response:BodyGrupo) =>{
-                                console.log(response);
-
                             this.grado = response[0].grado;
                             this.posicion = response[0].posicion;
                           }
@@ -56,11 +55,8 @@ export class AgregarActividadComponent implements OnInit {
     //obteniendo asignatura
     this.serviceDicente.getAsignatura(this.id_grupo)
                         .subscribe((response:BodyAsignatura)=>{
-                          console.log(response);
-                          console.log(response, '2222222222222');
-
-                          this.id_asignatura = response[0].id_asignaturas;
-                          this.asiganatura = response[0].nombre;
+                         this.id_asignatura = response[0].id_asignaturas;
+                         this.asiganatura = response[0].nombre;
                         });
   }
 
@@ -77,29 +73,34 @@ export class AgregarActividadComponent implements OnInit {
 
       this.serviceDicente.CrearActvidad(fecha_limite, descripcion, this.id_grupo)
                           .subscribe((res:BodyActividadRespons3)=>{
+                            this.visible = true;
                              this.id_actividad = res[0].id_actividad
-
                           });
-
-
-
-
-
   }
 
 
-  aniadir():void{
-    this.aniadirTarea = true;
-    }
-    cancelar():void{
-      this.aniadirTarea = false;
-    }
+  editarActividad(){
+    console.log('Editando...');
+    const {descripcion} = this.formulario.value;
+
+    this.serviceDicente.editActivity(this.id_actividad, descripcion)
+                        .subscribe(e=>{
+                          console.log(e);
+                          
+                        })
+    
+  }
+
+    
 
     getArchivo(e){
       const d = e.target.files[0].name;
       if(d!=''){
-        this.serviceup.updloadFile(e, this.id_grado, this.id_grupo, this.id_asignatura, this.id_actividad);
-
+        const s =this.serviceup.updloadFile(e, this.id_grado, this.id_grupo, this.id_asignatura, this.id_actividad);
+      if(this.serviceup.satus()){
+        this.archivoCargado.push(d);
+      }
+        
       
       }
     }

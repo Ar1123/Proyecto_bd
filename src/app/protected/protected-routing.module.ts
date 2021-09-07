@@ -8,6 +8,7 @@ import { ActividadComponent } from './teacher/actividad/actividad.component';
 import { GrupoComponent } from './teacher/grupo/grupo.component';
 import { HomeDocenteComponent } from './teacher/home-docente/home-docente.component';
 import { AgregarActividadComponent } from './teacher/agregar-actividad/agregar-actividad.component';
+import { ListActividadesComponent } from './teacher/list-actividades/list-actividades.component';
 
 const routes: Routes =[
 
@@ -25,6 +26,7 @@ const routes: Routes =[
 { path:'actividad',component:ActividadComponent,},
 { path:'grupo/:id',component:GrupoComponent,},
 { path:'asignarActividad/:id_grado/:id_grupo', component:AgregarActividadComponent},
+{ path:'listActividades/:id_grupo', component:ListActividadesComponent},
 
 
 /*
@@ -37,8 +39,8 @@ const routes: Routes =[
 .##.......##.......##.....##..#######.....##....##.....##..######.....########..######.....##.....#######..########..####.##.....##.##....##....##....########
 */
 { path:'inicioEstudiante/:id',component: InicioComponent, },
-{ path:'actividades/:id_grupo',component: ActivityComponent,},
-{ path:'detalleActividad/:id_actividad/:nombre', component: ActivityDetailComponent}
+{ path:'actividades/:id_grupo/:id_asignatura',component: ActivityComponent,},
+{ path:'detalleActividad/:id_actividad/:id_asignaturas', component: ActivityDetailComponent}
 ];
 
 @NgModule({

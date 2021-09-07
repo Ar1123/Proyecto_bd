@@ -44,9 +44,21 @@ export interface BodyAsignatura {
     nombre:        string;
     id_asignaturas:        string;
 }
+export interface BodyAsignaturas {
+    nombre:        string;
+}
 export interface BodyActividadRespons3 {
     id_actividad: number, 
     descripcion:  string, 
     fecha_inicial:Date, 
     fecha_limite: Date
+}
+export interface BodyListActividad {
+    id_actividad: string;
+    id_grupo: string;
+    id_docente: string
+    fecha_inicial: Date;
+    fecha_limite: Date;
+    id_periodo: string;
+    descripcion: string
 }

@@ -6,12 +6,12 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item"  *ngFor="let item of items">
-                    <a class="nav-link active home" aria-current="page" href="#" >{{item}}</a>                    
+                    <a class="nav-link active home" aria-current="page">{{item}}</a>                    
                 </li>                
             </ul>
             <form class="d-flex">
                 <button class="btn btn-outline" routerLink="/index/login" type="submit"> <p>Iniciar Sesion</p> </button>                
-                <button  *ngIf="activado" class="btn btn-outline" routerLink="/"> <p>Cerrar Sesion</p> </button>                                         
+                <button  *ngIf="activado" class="btn btn-outline" > <p>Cerrar Sesion</p> </button>                                         
             </form>
         </div>
     </div>

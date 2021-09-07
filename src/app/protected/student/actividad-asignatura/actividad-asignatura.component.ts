@@ -29,11 +29,11 @@ console.log(this.id_grupo, this.nombre);
   }
 
   cargarActividades(id_grupo:string, nombre:string){
-    this.service.getActividadAsignatura(id_grupo, nombre).subscribe(data=>{
+    // this.service.getActividadAsignatura(id_grupo, nombre).subscribe(data=>{
       
-      this.Actividades = data.body;
-      console.log(this.Actividades);
-          });
+    //   this.Actividades = data.body;
+    //   console.log(this.Actividades);
+    //       });
   }
 
 }

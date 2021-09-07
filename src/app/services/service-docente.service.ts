@@ -42,6 +42,18 @@ export class ServiceDocenteService {
       catchError(e=>of(e))
     ) 
   }
+
+  getAsignaturas(){
+      const url = `${this.baseUrl}/asigDocente/${this.idUser}`;
+
+    return this.http.get<ResponseInterface>(url)
+                    .pipe(
+                        map(res=>{
+                          return res.body;
+                        }),
+                        catchError(e=>of(e))
+                    );
+  }
   //Obtiene los grados donde el docenet da clases
   getGrados(){
     const URL = `${this.baseUrl}/grados/${localStorage.getItem('userId')}`;
@@ -119,6 +131,17 @@ export class ServiceDocenteService {
 
   }
 
+  listActividades(id_grupo:string){
+
+    const url  = `${this.baseUrl}/listActividades/${this.idUser}/${id_grupo}`;
+    return this.http.get<ResponseInterface>(url)
+                .pipe(
+                  map(res=>{
+                    return res.body;
+                  }),
+                  catchError(e=>of(e))
+                )} 
+
  /*
  ..........##.......##.########...#######...######..########
  .........##.......##..##.....##.##.....##.##....##....##...
@@ -169,7 +192,34 @@ export class ServiceDocenteService {
     }
 
 
-   
+  /*
+  .......##.......##.########..##.....##.########
+  ......##.......##..##.....##.##.....##....##...
+  .....##.......##...##.....##.##.....##....##...
+  ....##.......##....########..##.....##....##...
+  ...##.......##.....##........##.....##....##...
+  ..##.......##......##........##.....##....##...
+  .##.......##.......##.........#######.....##...
+  */
+
+
+  editActivity(id_actividad:string, descripcion:string){
+
+    const url = `${this.baseUrl}/editarActividad/${id_actividad}`;
+    const body = {
+        descripcion
+    };
+
+    return this.http.put<ResponseInterface>(url, body)
+                    .pipe(
+                      map(res=>{
+                        return res.ok;
+                      }),
+                      catchError(e=>of(e))
+                    )
+    
+  }
+
 
 
 }

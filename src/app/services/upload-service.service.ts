@@ -21,6 +21,7 @@ export class UploadServiceService {
   private url:string;
   private fileType:string;
 
+  public up: boolean = false;
 
 
   constructor( 
@@ -63,26 +64,29 @@ export class UploadServiceService {
                            tipo_archivo:'guia'
                         
                        };
+                       this.up = true;
                    
                        return  this.http.post<ResponseInterface>(urls,body)
                                          .pipe(
                                            map(res=>{
+                                            this.up = true;
                                              return res.body;
                                            }),
                                            catchError(e=>of(e))
                                          ).subscribe(e=>{
+                                          this.up = true;
                                            console.log(e);
                                            
                                          });
-                         
-
-                       })
-            })
-          ).subscribe(
-
-
-              res=>{
-                console.log('ssss', this.url);
+                                         
+                                         
+                                        })
+                                      })
+                                      ).subscribe(
+                                        
+                                        
+                                        res=>{
+     
                 
               }
          
@@ -92,6 +96,10 @@ export class UploadServiceService {
 
   }
 
+
+  satus(){
+    return this.up;
+  }
 
 
 }

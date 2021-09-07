@@ -30,17 +30,7 @@
                     </ng-template>
                 </ul>
             </div>
-            <div class="col">
-                <p style="font-weight: bold;">Enlaces</p>
-                <ul class="nav flex-column">
-                    <li *ngIf="listaEnlaces.length===0; else enlaces">No hay enlaces :(</li>
-                    <ng-template #enlaces>
-                        <div *ngFor="let item of   listaEnlaces; let i=index">
-                            {{i+1}} . <a href="{{item}}"> {{item}}</a><br>
-                        </div>
-                    </ng-template>
-                </ul>
-            </div>
+      
         </div>
     </div>
     <div class="detalle-actividad mt-5 p-4">
@@ -125,7 +115,7 @@
             </div>
         </div>
         <div style="float: right; margin-right: 140px;margin-top: 20px;">
-            <button class=" m-1 btn " style="width: 100px;">Subir</button>
+            <button class=" m-1 btn " style="width: 100px;" (click)="subir()">Subir</button>
             <button class=" m-1 btn " style="width: 100px; background-color: red;" (click)='cancelar()'>Cancelar</button>
         </div>
     </div>

@@ -15,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from "@angular/material/input";
+import { ListActividadesComponent } from './teacher/list-actividades/list-actividades.component';
 @NgModule({
   declarations: [
     MainComponent,
@@ -25,6 +26,7 @@ import { MatInputModule } from "@angular/material/input";
     ActivityComponent,
     ActivityDetailComponent,
     AgregarActividadComponent,
+    ListActividadesComponent,
 
     
   ],

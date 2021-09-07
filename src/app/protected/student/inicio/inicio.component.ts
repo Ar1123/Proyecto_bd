@@ -31,29 +31,34 @@ export class InicioComponent implements OnInit {
 
   datos: DatoStudent[];
   id_grupo: string;
-   Asignaturas: AsignaturaArray[];
+  nombre:string;
+  apellido:string;
+  Asignaturas: AsignaturaArray[];
    
 
   constructor(private service:ServiceEstudianteService, private route:Router) { }
 
   ngOnInit(): void {
     this.service.getDatos().subscribe(data=>{
-      console.log(data.body);
+      // console.log(data.body);
       data.body.map(datos=>{
 
-        this.id_grupo = datos.id_grupo;
+        this.id_grupo = datos.id_grupo; 
+        this.nombre = datos.nombres;
+        this.apellido = datos.apellidos;
 
-        console.log(this.id_grupo);
+
 
         this.service.getAsignaturas1(this.id_grupo).subscribe(data=>{
-          console.log(this.id_grupo)
+          // console.log(this.id_grupo)
           console.log(data.body)
+          
           this.Asignaturas = data.body;
           for (let index = 0; index < this.Asignaturas.length; index++) {
-            console.log(this.Asignaturas[index].nombre);
+            // console.log(this.Asignaturas[index].nombre);
             
           }
-          console.log(this.Asignaturas)
+          // console.log(this.Asignaturas)
          
         });
       });
@@ -66,9 +71,11 @@ export class InicioComponent implements OnInit {
   }
 
 
-  VerActividades(){
+  verActividades(item){
     console.log(this.id_grupo);
-this.route.navigate(['school/actividades',this.id_grupo])
+    console.log(item);
+    
+this.route.navigateByUrl(`school/actividades/${this.id_grupo}/${item}`);
   }
 
 }

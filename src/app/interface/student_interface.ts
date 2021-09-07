@@ -9,6 +9,8 @@ export interface BodyStudent {
     id_grupo:      string;
     sexo: string;
     año:string;
+    nombres: string;
+    apellidos: string;
 
 }
 
@@ -19,6 +21,7 @@ export interface Asignatura{
 
 export interface AsignaturaArray{
 nombre: string;
+id_asignaturas:string;
 }
 
 export interface Asignada{
@@ -42,3 +45,12 @@ id_actividad : string;
 id_periodo:string;
 descripcion: string;
 }
+
+export interface gradoEstudiante{
+    body: gradoEstudianteArray[];
+    }
+
+    export interface gradoEstudianteArray{
+        id_grado:string;
+        posicion: string;
+        }

@@ -4,6 +4,7 @@
         <div class="col">
             <img src="../../../../assets/images/5 SCENE.png" alt="">
 
+                <h1>Bienvenido {{nombre}}  {{apellido}}</h1>
             <div class="card-body">
                 <p class="card-text">Aqui encontraras las asignaturas que estas recibiendo y tendras acceso a las actividades
                 </p>
@@ -12,11 +13,13 @@
         </div>
         <div class="col asignaturas">
             <h1>Asignaturas</h1>
-            <button (click)="VerActividades()"> Ver Actividades</button>
+      
             <ul class="list-group">
                 <li class="list-group-item title"><a href="">Asignaturas</a></li>
-                <li class="list-group-item" *ngFor="let item of Asignaturas"><a>{{item.nombre}}</a></li>
+                <li class="list-group-item" *ngFor="let item of Asignaturas" (click)="verActividades(item.id_asignaturas)" ><a>{{item.nombre}}</a></li>
             </ul>
+            <br>
+            <!-- <button type="submit" class="btn btn-outline"  (click)="VerActividades()"> Ver Mis Actividades</button> -->
         </div>
     </div>
 </div>

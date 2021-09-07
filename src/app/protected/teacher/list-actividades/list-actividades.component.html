@@ -1,0 +1,33 @@
+<app-headers [items]="items"></app-headers>
+<div class="container">
+    
+
+    <div class="row row1">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col"> No</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Archivo</th>
+                    <th scope="col"></th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of listActividades;let i = index  ">
+                    <th scope="row">{{i +1}}</th>
+                    <td>{{item.descripcion}}</td>
+                    <td>{{item.fecha_inicial}}</td>
+                    <td>{{item.fecha_limite}}</td>
+                    <td><button type="button" class="btn btn-primary btn-sm b1" (click)="editar(item)" >Editar</button> </td>
+                </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+
+
+</div>

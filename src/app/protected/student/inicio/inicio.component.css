@@ -17,6 +17,19 @@ a {
     margin-top: 5%;
 }
 
+.btn {
+    /* position: absolute; */
+    bottom: 95.7%;
+    background: #262559;
+    border-radius: 2px;
+    /* height: 30px; */
+    /* width: 160px; */
+    color: white;
+    align-items: center;
+    /* left: 1115px; */
+    /* top: 18px; */
+}
+
 .list-group-item {
     border: 1px solid #92A1CC;
     border-top: 0px;

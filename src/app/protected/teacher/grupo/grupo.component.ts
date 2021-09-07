@@ -84,5 +84,8 @@ export class GrupoComponent implements OnInit {
       Swal.fire('Error','Elija un grupo' , 'error');
     }
   }
+  verActividades(){
+    this.routes.navigateByUrl(`school/listActividades/${this.id_grupo}`);
+  }
 
 }

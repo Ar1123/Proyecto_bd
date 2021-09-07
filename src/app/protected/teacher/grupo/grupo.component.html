@@ -18,7 +18,7 @@
 
         Grupos
     <div class="row row2">
-        <div class="col">
+        <div class="col-4">
             <div class="d-grid gap-2 d-md-block" >
              
                     <div class="col">
@@ -29,13 +29,9 @@
             </div>
         </div>
         <div class="col">
-            <!--Hay que enviar por la ruta el curso para poder registra a que curso se asigno la 
-            actividad en la base de datos-->
             <button type="button" class="btn btn-primary b1"  (click)="asignarActividad()">Asignar actividad</button>
             <button type="button" class="btn btn-outline-primary b1" >Ver entregas</button>
-            <!-- <button type="button" class="btn btn-primary b1" [routerLink]="['/agregarActividadDocente', this.grupos, this.id]" routerLinkActive="router-link-active">Asignar actividad</button> -->
-            <!-- <button type="button" class="btn btn-outline-primary b1" [routerLink]="['/verEntregas', this.grupos, this.id]">Ver entregas</button> -->
-            <!-- <button type="button" class="btn btn-outline-primary b2" routerLink="/verEntregas">Ver Actividades asignadas</button> -->
+            <button type="button" class="btn btn-outline-primary b1" (click)="verActividades()"  > Ver Actividades asignadas</button>
 
         </div>
 
