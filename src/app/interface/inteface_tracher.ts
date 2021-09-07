@@ -62,3 +62,9 @@ export interface BodyListActividad {
     id_periodo: string;
     descripcion: string
 }
+export interface BodyPeriodo {
+    id_periodo: string;
+    anio: string;
+    fecha_inicio: Date;
+    fecha_fin: Date;
+}

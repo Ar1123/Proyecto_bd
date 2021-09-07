@@ -142,6 +142,20 @@ export class ServiceDocenteService {
                   catchError(e=>of(e))
                 )} 
 
+  periodos(){
+
+    const url = `${this.baseUrl}/periodos`;
+    return this.http.get<ResponseInterface>(url)
+               .pipe(
+                 map(
+                   res=>{
+                     return res.body;
+                   }
+                 ),
+                 catchError(e=>of(e))
+               )  
+  }              
+
  /*
  ..........##.......##.########...#######...######..########
  .........##.......##..##.....##.##.....##.##....##....##...
@@ -152,9 +166,9 @@ export class ServiceDocenteService {
  ....##.......##.......##.........#######...######.....##...
  */
 
-    CrearActvidad(fecha_limite:string, descripcion:string, id_grupo:string){
+    CrearActvidad(fecha_limite:string, descripcion:string, id_grupo:string, id_periodo:string){
      const url = `${this.baseUrl}/crearActividad`;
-    const  id_periodo = '001P';
+    // const  id_periodos = '001P';
     let fecha = new Date();
     let dia:string;
     let mes:string;

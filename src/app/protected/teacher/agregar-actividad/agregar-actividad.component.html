@@ -6,13 +6,7 @@
             <!-- <h1>{{grupos}}</h1> -->
         </div>
         <div class="col-6 col-sm-3">
-            <div class="dropdown">
-          
-                <!-- <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" *ngFor="let item of asignaturas">
-                    <li><a class="dropdown-item">{{item }}</a></li>
-
-                </ul> -->
-            </div>
+     
         </div>
         <hr style="color: #929ECC;">
     </div>
@@ -25,19 +19,32 @@
         <div class="col-4">
        {{asiganatura}}
         </div>
+            <div class="col-4">
+                <div class="dropdown">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                  Periodos
+                </a>
+    
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" >
+                        <li ><a class="dropdown-item" *ngFor="let item of periodo; let i=index" (click)="periodos(item,i)">{{item.anio }} -{{i+1}}</a></li>
+    
+                    </ul>
+                </div>
+                Periodo: {{ id_periodo }}
+            </div>
       
-        <div class="col-4">
-            <!--Hay que enviar por la ruta el curso para poder registra a que curso se asigno la 
-            actividad en la base de datos-->
-            <button type="button" class="btn btn-outline-primary b3" routerLink="/verEntregas">Ver Actividades asignadas</button>
-        </div>
+        <!-- <div class="col-3">
+        Hay que enviar por la ruta el curso para poder registra a que curso se asigno la 
+            actividad en la base de datos
+         <button type="button" class="btn btn-outline-primary b3" routerLink="/verEntregas">Ver Actividades asignadas</button> 
+        </div> -->
 
 
     </div>
 
         <form  [formGroup]=formulario>
             <div class="row row3">
-
+<br><br>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName=descripcion> </textarea>

@@ -3,9 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, FormGroupName, Validators } from '@angular/forms';
 import { UploadServiceService } from 'src/app/services/upload-service.service';
 import { ServiceDocenteService } from '../../../services/service-docente.service';
-import { BodyGrupo, BodyAsignatura, BodyActividadRespons3 } from '../../../interface/inteface_tracher';
+import { BodyGrupo, BodyAsignatura, BodyActividadRespons3, BodyPeriodo } from '../../../interface/inteface_tracher';
 
 import * as _moment from 'moment';
+import Swal from 'sweetalert2';
 const moment = _moment;
 @Component({
   selector: 'app-agregar-actividad',
@@ -22,6 +23,10 @@ export class AgregarActividadComponent implements OnInit {
   private id_asignatura:string;
   archivoCargado:string[] = [];
   visible:boolean = false;
+  periodo: BodyPeriodo[] =[];
+
+  id_periodo:string;
+  periodoSelect:string;
 
   grado: string;
   posicion:string;
@@ -43,7 +48,14 @@ export class AgregarActividadComponent implements OnInit {
     this.id_grupo = this.router.snapshot.paramMap.get('id_grupo');
 
 
-
+    this.serviceDicente.periodos()
+                       .subscribe(
+                         res=>{
+                           res.forEach(element => {
+                              this.periodo.push(element);
+                           });
+                         }
+                       )
     //obteniendo grupo
     this.serviceDicente.getGrupo(this.id_grado, this.id_grupo).
                     subscribe(
@@ -71,11 +83,18 @@ export class AgregarActividadComponent implements OnInit {
     const formatoActual = new Date(fechaLimite);
     const fecha_limite = moment(formatoActual).format('YYYY-MM-DD');
 
-      this.serviceDicente.CrearActvidad(fecha_limite, descripcion, this.id_grupo)
-                          .subscribe((res:BodyActividadRespons3)=>{
-                            this.visible = true;
-                             this.id_actividad = res[0].id_actividad
-                          });
+    if(this.id_periodo){
+  this.serviceDicente.CrearActvidad(fecha_limite, descripcion, this.id_grupo, this.id_periodo)
+  .subscribe((res:BodyActividadRespons3)=>{
+    this.visible = true;
+     this.id_actividad = res[0].id_actividad
+  });
+
+      console.log('eeeeeeeeee');
+      
+}else{
+  Swal.fire('Error','Elija un perido' , 'error');
+}
   }
 
 
@@ -103,6 +122,11 @@ export class AgregarActividadComponent implements OnInit {
         
       
       }
+    } 
+
+    periodos(item, event){
+  
+      this.id_periodo = item.id_periodo;        
     }
 
 

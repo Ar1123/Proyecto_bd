@@ -85,7 +85,18 @@ export class GrupoComponent implements OnInit {
     }
   }
   verActividades(){
+
+    if(this.id_grupo){
+      // /school/asignarActividad
+        // this.routes.navigate(['school/asignarActividad']);
+        console.log('ww', this.grado);
+        
     this.routes.navigateByUrl(`school/listActividades/${this.id_grupo}`);
+        
+
+    }else{
+      Swal.fire('Error','Elija un grupo' , 'error');
+    }
   }
 
 }

@@ -29,6 +29,8 @@ export class ListActividadesComponent implements OnInit {
                         .subscribe(
                           (res:BodyListActividad[])=>{
                             res.forEach(element => {
+                              
+                             
                               this.listActividades.push(element);
                             });                            
                           }
