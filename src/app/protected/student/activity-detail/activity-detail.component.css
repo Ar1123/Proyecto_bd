@@ -83,3 +83,12 @@ img {
     opacity: 0;
     cursor: pointer;
 }
+
+.col-4 li {
+    list-style: none;
+}
+
+input#archivo.m-1.btn {
+    background-color: #262559;
+    z-index: -1;
+}

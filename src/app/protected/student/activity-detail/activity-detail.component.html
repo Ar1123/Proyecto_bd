@@ -58,19 +58,17 @@
             </div>
             <div class="col">
                 <!-- aquí van los archivos entregados NOTA: este componente se puede reutilizar-->
-                <ul class="nav flex-column">
-                    <li *ngIf="listaArchivos.length===0; else archivos">No hay archivos :(</li>
-                    <ng-template #archivos>
-                        <div *ngFor="let item of   listaArchivos">
-                            <li *ngIf="item.endsWith('.pdf')"><i class="fas fa-file-pdf" style="color:red"></i> {{item}}
-                            </li>
-                            <li *ngIf="item.endsWith('.docx')"><i class="fas fa-file-word" style="color:rgb(96, 96, 192)"></i> {{item}}
-                            </li>
-                            <li *ngIf="item.endsWith('.xls')"><i class="fas fa-file-excel" style="color: rgb(45, 204, 45);"></i> {{item}}
-                            </li>
-                        </div>
-                    </ng-template>
-                </ul>
+                <li *ngIf="this.format ==='pdf'"><i class="fas fa-file-pdf doc" style="color:red;font-size: 50px;"></i>
+                    <p>{{this.filename}} . {{this.format}}</p>
+                </li>
+                <li *ngIf="this.format ==='docx'"><i class="fas fa-file-word doc" style="color:rgb(96, 96, 192)"></i>
+                    <p>{{this.filename}} . {{this.format}}</p>
+
+                </li>
+                <li *ngIf="this.format ==='xls'"><i class="fas fa-file-excel doc" style="color: rgb(45, 204, 45);"></i>
+                    <p>{{this.filename}} . {{this.format}}</p>
+
+                </li>
             </div>
         </div>
         <div class="row pt-3">
@@ -84,48 +82,59 @@
         </div>
     </div>
 
-    <div class="text-center" *ngIf="!aniadirTarea">
+    <div class="text-center" *ngIf="mostrar==false">
         <button class=" mt-5 btn  btn-outline" (click)='aniadir()'>Agregar Entrega</button>
     </div>
-    <div *ngIf="aniadirTarea">
-        <div class="detalle-actividad mt-5 p-4" style="height: 300px;">
-            <div class="row">
-                <div class="col-4" *ngIf="archivoCargado.length>0">
-                    <ul class="nav flex-column">
-                        <div *ngFor="let item of   archivoCargado">
-                            <li *ngIf="item.endsWith('.pdf')"><i class="fas fa-file-pdf" style="color:red"></i> {{item}}
-                            </li>
-                            <li *ngIf="item.endsWith('.docx')"><i class="fas fa-file-word" style="color:rgb(96, 96, 192)"></i> {{item}}
-                            </li>
-                            <li *ngIf="item.endsWith('.xls')"><i class="fas fa-file-excel" style="color: rgb(45, 204, 45);"></i> {{item}}
-                            </li>
-                        </div>
-                    </ul>
-                </div>
-                <div class="col">
-                    <div class="d-flex  justify-content-center">
-                        <div class="text-center mt-5">
-                            <button type="button" class="btnfile">                                
-                                <input type="file" (change) ='getArchivo($event)' >
-                            </button>
-                            <p>Selecciona una archivo o arrastralo aqui</p>
-                        </div>
-                    </div>
-                </div>
+    <div *ngIf="aniadirTarea===true">
+
+        <div *ngIf="(uploadPercent | async) !== 100" style=" margin-right: 140px;margin-top: 20px; width: 100%;">
+            <div class="text-center mt-5">
+                <button type="button" class="btnfile">                                
+                   <input *ngIf="(uploadPercent | async) !== 100" #archivo required id="archivo" type="file" class=" m-1 btn  form-control btn-outline" style="width: 100px;" (change)="cargarArchivo($event)" name="Subir" placeholder="Cargar archivo">  
+                </button>
+                <p>Haz clic y carga un archivo</p>
             </div>
+            Cargar archivo
+            < <!--<div class="progress-bar progress-bar-striped bg-succes" role="progressbar" [style.width]="(uploadPercent | async) + '%'" style="height: 100%;"></div>-->
+        <a style="width: 100%; display: block;" [href]="downloadURL | async">{{ downloadURL | async }}</a>
+        <div>
+            {{ uploadPercent | async }}
         </div>
-        <div style=" margin-right: 140px;margin-top: 20px; width: 100%;">
+        <p>Cargar Archivo</p>
 
-            <input type="file" class=" m-1 btn " style="width: 100px;" (change)="subir($event)" name="Subir" placeholder="Cargar archivo">
-
-            <!--<div class="progress-bar progress-bar-striped bg-succes" role="progressbar" [style.width]="(uploadPercent | async) + '%'" style="height: 100%;"></div>-->
-            <a style="width: 100%; display: block;" [href]="downloadURL | async">{{ downloadURL | async }}</a>
-            <p>Cargar Archivo</p>
-            <div class="progress">
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" [aria-valuenow]="(uploadPercent | async)" [style.width]="(uploadPercent | async)"> {{ uploadPercent | async }}</div>
-            </div>
-            <!--
+        <div *ngIf="(uploadPercent | async) !== 100" class="progress" style="width: 20px;">
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" aria-valuemin="0" aria-valuemax="100" role="progressbar" [aria-valuenow]="(uploadPercent | async)"> {{ uploadPercent | async }}</div>
+        </div>
+        <p *ngIf="(uploadPercent | async) !== 100"> {{ uploadPercent | async }} %</p>
+        <p *ngIf="(uploadPercent | async) === 100"> Su archivo se subio con exito</p>
+        <!--
             <button class=" m-1 btn " style="width: 100px; background-color: red;" (click)='cancelar()'>Cancelar</button>-->
+
+    </div>
+
+    <a (click)="verEntrega()"> Ver detalles de entrega</a>
+    <div *ngIf="mostrar=== true" class="detalle-actividad mt-5 p-4" style="height: 300px;">
+        <div class="row">
+            <div class="col-4">
+
+                <li *ngIf="this.format ==='pdf'"><i class="fas fa-file-pdf doc" style="color:red;font-size: 50px;"></i>
+                    <p>{{this.filename}} . {{this.format}}</p>
+                </li>
+                <li *ngIf="this.format ==='docx'"><i class="fas fa-file-word doc" style="color:rgb(96, 96, 192)"></i>
+                    <p>{{this.filename}} . {{this.format}}</p>
+
+                </li>
+                <li *ngIf="this.format ==='xls'"><i class="fas fa-file-excel doc" style="color: rgb(45, 204, 45);"></i>
+                    <p>{{this.filename}} . {{this.format}}</p>
+
+                </li>
+
+            </div>
+
+            <button *ngIf="mostrar" class=" m-1 btn " (click)="eliminarArchivo()"> Eliminar</button>
+
+
         </div>
     </div>
+</div>
 </div>

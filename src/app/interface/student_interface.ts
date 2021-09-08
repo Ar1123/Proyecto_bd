@@ -59,12 +59,41 @@ export interface Archivo {
 }
 
 export interface ArchivoArray {
-    id_act:string,
-    id_est:string,
+    id_act: string,
+    id_est: string,
     peso: string,
     formato: string,
-    nombre:string,
-    ruta:string,
-    fecha:string,
+    nombre: string,
+    ruta: string,
+    fecha: string,
     tipo_archivo: string,
+}
+
+export interface nombreArchivoArray {
+    name: string,
+    size: number,
+    lastModified: string,
+    type: string,
+    webkitRelativePath: string
+}
+
+export interface nombreArchivo{
+    body: nombreArchivoArray[]
+}
+
+export interface entregaArray {
+    id_act: string,
+    id_est: string,
+    peso: string,
+    formato: string,
+    nombre: string,
+    ruta: string,
+    fecha: string,
+    tipo_archivo: string,
+    nota: number,
+    id: string,
+}
+
+export interface entrega{
+    body: entregaArray[]
 }
